@@ -1,38 +1,23 @@
-#
-# Be sure to run `pod lib lint Lock-GooglePlus.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "Lock-GooglePlus"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of Lock-GooglePlus."
+  s.version          = "1.0.0"
+  s.summary          = "Google+ Native Integration for Auth0 Lock"
   s.description      = <<-DESC
-                       An optional longer description of Lock-GooglePlus
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                      [![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)
+                      Plugin for [Auth0 Lock](https://github.com/auth0/Lock.iOS-OSX) that handles authentication using Google+ iOS SDK.
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/Lock-GooglePlus"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/auth0/Lock-GooglePlus.iOS"
   s.license          = 'MIT'
-  s.author           = { "Hernan Zalazar" => "hernanzalazar@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/Lock-GooglePlus.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Auth0" => "support@auth0.com", "Hernan Zalazar" => "hernan@auth0.com" }
+  s.source           = { :git => "https://github.com/auth0/Lock-GooglePlus.iOS.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/auth0'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'Lock-GooglePlus' => ['Pod/Assets/*.png']
-  }
+  s.public_header_files = 'Pod/Classes/*.h'
+  s.source_files = 'Pod/Classes/*.{h,m}'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'googleplus-ios-sdk', '~> 1.7.1'
+  s.dependency 'Lock/Core', '~> 1.11'
 end
