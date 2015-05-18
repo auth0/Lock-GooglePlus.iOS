@@ -1,15 +1,16 @@
-# references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
-
 language: objective-c
-# cache: cocoapods
 podfile: Example/Podfile
 before_install:
-- gem install cocoapods --no-rdoc --no-ri --no-document  # Since Travis is not always on latest version
+- gem install cocoapods --no-rdoc --no-ri --no-document
 - pod install --project-directory=Example
 install:
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
 - set -o pipefail && xcodebuild test -workspace Example/Lock-GooglePlus.xcworkspace -scheme Lock-GooglePlus -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
 - pod lib lint --quick
+notifications:
+  slack:
+    secure: ho3iibZUl3gpr2WGLkb6GSPS6PaGN3hkRLt02qcSMsiF2O7Pc5f1TdeVsaVIQYfwqWAu50TzyO35W4az4vzy60x3FZQpeUejXpfcHdIVgOBQLZLrgzUD0OYNzSSvh9VCIBaogV1510VoOwtNFVe0gbIBv0vL0qPDswcLJC3vC/24+3OTz8uoNkQeQr7QmeHdRqYL51YjenO7JRyBtxo4/mWV32vTMMfEQuCDsy/+ppe/6laeFSx2ynO3aTsiIbwRyV+m7rUH10id2jEARs9pEvQXM8+jislgrz4C78+dbXMfKiaYAvH0mTWzYem7wGpN8Pg2dderfRy5w/SmgwfvBj2ZAbL431ktHtTPMzHL6GtebHTdZasHL/NzjeIC5285ewa7Itz1uR3AR1HzGkz1FeFiwE4/PMOjMVjJhx1hCUC9CSpWfc8za8Uu/412TO7DYX6JADqisthhnYMKOWc9FFOCrko2YY07sUqlyBIcurMt1Y3xYG25jnTi/+Vn/4UNG1KAHMNmeP5P+YLZxiTDieY4s/VzD2LwlKXTViMZ9ktUwVOvSREz6ZrwrA0DGe5S+UslyTpHi6+weXY2pFGfV0pBZWpay19Juv7XPFirbd1Frj/7+Tsd2ue3y00qCMVTrP61qq82cb5CeLmsYNe5o5b0qq2j+ZKNVm7w6SSEkaM=
+branches:
+  only:
+    - master
