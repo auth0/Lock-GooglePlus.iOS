@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+
+target 'Lock-GooglePlus', :exclusive => true do
+  pod "Lock-GooglePlus", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+end
