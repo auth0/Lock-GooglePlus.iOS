@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Lock-GooglePlus"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "Google+ Native Integration for Auth0 Lock"
   s.description      = <<-DESC
                       [![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)

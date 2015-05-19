@@ -66,10 +66,10 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
-  - Lock-GooglePlus (1.0.0):
+  - Lock-GooglePlus (1.0.1):
     - googleplus-ios-sdk (~> 1.7.1)
     - Lock/Core (~> 1.11)
-  - Lock/Core (1.11.3):
+  - Lock/Core (1.12.0):
     - AFNetworking (~> 2.5)
     - CocoaLumberjack (~> 2.0.0-rc)
     - ISO8601DateFormatter (~> 0.7)
@@ -92,8 +92,8 @@ SPEC CHECKSUMS:
   googleplus-ios-sdk: 065d9135061a5f84c07656a68ced48336408fe35
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  Lock: 2ab38b864235867d45fd0d05ae4dfc7c24afa485
-  Lock-GooglePlus: 0d874c44c75ccaaaa35e5ba60f00214f3371162a
+  Lock: ca0a339e418793d13842c4d901c7a5f8b698d87e
+  Lock-GooglePlus: 38ea73da70d3dd3d210dfb7716b5aeed5aaabca6
   Specta: 96fe05fe5c7348b5223f85e862904f6e832abb14
 
 COCOAPODS: 0.37.1
