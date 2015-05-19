@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.0.1](https://github.com/auth0/Lock-GooglePlus.iOS/tree/1.0.1) (2015-05-19)
+
+[Full Changelog](https://github.com/auth0/Lock-GooglePlus.iOS/compare/1.0.0...1.0.1)
+
+**Fixed bugs:**
+
+- Use Swift module name "LockGooglePlus" [\#1](https://github.com/auth0/Lock-GooglePlus.iOS/issues/1)
+
 ## [1.0.0](https://github.com/auth0/Lock-GooglePlus.iOS/tree/1.0.0) (2015-05-18)
 
 
