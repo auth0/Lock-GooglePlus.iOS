@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/Lock-GooglePlus.svg?style=flat)](http://cocoapods.org/pods/Lock-GooglePlus)
 [![Platform](https://img.shields.io/cocoapods/p/Lock-GooglePlus.svg?style=flat)](http://cocoapods.org/pods/Lock-GooglePlus)
 
+##IMPORTANT: Due to Apple [rejecting applications](https://code.google.com/p/google-plus-platform/issues/detail?id=900) using Google+ SDK because of using Safari to authenticate we recommend to avoid using this library until Google fixes its SDK.
+
 [Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
 Lock-GooglePlus helps you integrate native Login with [Google+ iOS SDK](https://developers.google.com/+/mobile/ios/) and [Lock](https://auth0.com/lock)
