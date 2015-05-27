@@ -1,6 +1,6 @@
 # Lock-GooglePlus
 
-[![CI Status](http://img.shields.io/travis/Hernan Zalazar/Lock-GooglePlus.svg?style=flat)](https://travis-ci.org/auth0/Lock-GooglePlus.iOS)
+[![Build Status](https://travis-ci.org/auth0/Lock-GooglePlus.iOS.svg?branch=master)](https://travis-ci.org/auth0/Lock-GooglePlus.iOS)
 [![Version](https://img.shields.io/cocoapods/v/Lock-GooglePlus.svg?style=flat)](http://cocoapods.org/pods/Lock-GooglePlus)
 [![License](https://img.shields.io/cocoapods/l/Lock-GooglePlus.svg?style=flat)](http://cocoapods.org/pods/Lock-GooglePlus)
 [![Platform](https://img.shields.io/cocoapods/p/Lock-GooglePlus.svg?style=flat)](http://cocoapods.org/pods/Lock-GooglePlus)
