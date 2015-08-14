@@ -28,10 +28,9 @@
 #import <Lock/A0AuthParameters.h>
 #import <Lock/NSObject+A0APIClientProvider.h>
 #import <Lock/A0Logging.h>
-#import <GooglePlus/GooglePlus.h>
-#import <GoogleOpenSource/GoogleOpenSource.h>
+#import <Google/SignIn.h>
 
-@interface A0GooglePlusAuthenticator () <GPPSignInDelegate>
+@interface A0GooglePlusAuthenticator () <GIDSignInDelegate>
 @property (copy, nonatomic) void (^successBlock)(A0UserProfile *, A0Token *);
 @property (copy, nonatomic) void (^failureBlock)(NSError *);
 @property (strong, nonatomic) A0AuthParameters *parameters;
@@ -50,14 +49,21 @@ AUTH0_DYNAMIC_LOGGER_METHODS
 - (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes {
     self = [super init];
     if (self) {
-        GPPSignIn *signIn = [GPPSignIn sharedInstance];
+        GIDSignIn *signIn = [GIDSignIn sharedInstance];
         signIn.clientID = clientId;
         self.scopes = [scopes copy];
         signIn.delegate = self;
+        signIn.allowsSignInWithWebView = YES;
         [self clearCallbacks];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
     return self;
+}
+
+- (void)applicationLaunchedWithOptions:(NSDictionary *)launchOptions {
+//    NSError* configureError;
+//    [[GGLContext sharedInstance] configureWithError: &configureError];
+//    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
 }
 
 - (void)dealloc {
@@ -84,10 +90,10 @@ AUTH0_DYNAMIC_LOGGER_METHODS
     self.successBlock = success;
     self.failureBlock = failure;
     self.parameters = parameters;
-    GPPSignIn *signIn = [GPPSignIn sharedInstance];
+    GIDSignIn *signIn = [GIDSignIn sharedInstance];
     signIn.scopes = [self scopesFromParameters:parameters];
     self.authenticating = YES;
-    [signIn authenticate];
+    [signIn signIn];
     A0LogVerbose(@"Starting Google+ Authentication...");
 }
 
@@ -95,17 +101,17 @@ AUTH0_DYNAMIC_LOGGER_METHODS
     self.parameters = nil;
     self.authenticating = NO;
     [self clearCallbacks];
-    [[GPPSignIn sharedInstance] signOut];
+    [[GIDSignIn sharedInstance] signOut];
     A0LogVerbose(@"Cleared Google+ session");
 }
 
 - (BOOL)handleURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication {
-    return [GPPURLHandler handleURL:url sourceApplication:sourceApplication annotation:nil];
+    return [[GIDSignIn sharedInstance] handleURL:url sourceApplication:sourceApplication annotation:nil];
 }
 
 #pragma mark - GPPSignInDelegate
 
-- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth error:(NSError *)error {
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.authenticating = NO;
     });
@@ -114,7 +120,7 @@ AUTH0_DYNAMIC_LOGGER_METHODS
         self.failureBlock([A0Errors googleplusFailed]);
     } else {
         A0LogVerbose(@"Authenticated with Google+");
-        A0IdentityProviderCredentials *credentials = [[A0IdentityProviderCredentials alloc] initWithAccessToken:auth.accessToken];
+        A0IdentityProviderCredentials *credentials = [[A0IdentityProviderCredentials alloc] initWithAccessToken:user.authentication.idToken];
         A0APIClient *client = [self a0_apiClientFromProvider:self.clientProvider];
         [client authenticateWithSocialConnectionName:A0StrategyNameGooglePlus
                                                              credentials:credentials
@@ -130,9 +136,7 @@ AUTH0_DYNAMIC_LOGGER_METHODS
 
 - (NSArray *)scopesFromParameters:(A0AuthParameters *)parameters {
     NSMutableSet *scopeSet = [[NSMutableSet alloc] init];
-    [scopeSet addObject:kGTLAuthScopePlusLogin];
-    [scopeSet addObject:kGTLAuthScopePlusUserinfoEmail];
-    NSArray *connectionScopes = parameters.connectionScopes[A0StrategyNameFacebook];
+    NSArray *connectionScopes = parameters.connectionScopes[A0StrategyNameGooglePlus];
     NSArray *scopes = connectionScopes.count > 0 ? connectionScopes : self.scopes;
     if (scopes) {
         [scopeSet addObjectsFromArray:scopes];
