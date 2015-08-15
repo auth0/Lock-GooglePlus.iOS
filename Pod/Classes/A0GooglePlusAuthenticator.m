@@ -22,14 +22,14 @@
 
 #import "A0GooglePlusAuthenticator.h"
 #import <Lock/A0Strategy.h>
-#import <googleplus-ios-sdk/GooglePlus.h>
-#import <googleplus-ios-sdk/GoogleOpenSource.h>
 #import <Lock/A0APIClient.h>
 #import <Lock/A0IdentityProviderCredentials.h>
 #import <Lock/A0Errors.h>
 #import <Lock/A0AuthParameters.h>
 #import <Lock/NSObject+A0APIClientProvider.h>
 #import <Lock/A0Logging.h>
+#import <GooglePlus/GooglePlus.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>
 
 @interface A0GooglePlusAuthenticator () <GPPSignInDelegate>
 @property (copy, nonatomic) void (^successBlock)(A0UserProfile *, A0Token *);
