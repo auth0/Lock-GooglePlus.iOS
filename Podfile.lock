@@ -92,12 +92,16 @@ PODS:
     - CocoaLumberjack (~> 2.0)
     - ISO8601DateFormatter (~> 0.7)
     - libextobjc (~> 0.4)
+  - OCHamcrest (4.1.1)
+  - OCMockito (1.4.0):
+    - OCHamcrest (~> 4.0)
   - Specta (1.0.3)
 
 DEPENDENCIES:
   - Expecta
   - Google/SignIn (~> 1.0)
   - Lock/Core (~> 1.17)
+  - OCMockito
   - Specta
 
 SPEC CHECKSUMS:
@@ -114,6 +118,8 @@ SPEC CHECKSUMS:
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Lock: 7b7d1cdf49abfe73837730c60e5deac563cdc34f
+  OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
+  OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
   Specta: cf3e4188cf35375c3ee2cd03f8db8f1f4ef98234
 
 COCOAPODS: 0.38.2

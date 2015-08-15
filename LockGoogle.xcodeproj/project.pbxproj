@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5FF770841B7EAEA700FA0196 /* LockGoogle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FF770831B7EAEA700FA0196 /* LockGoogle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FF7708A1B7EAEA700FA0196 /* LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7707E1B7EAEA700FA0196 /* LockGoogle.framework */; };
-		5FF770911B7EAEA700FA0196 /* LockGoogleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF770901B7EAEA700FA0196 /* LockGoogleTests.m */; };
 		5FF7709C1B7EB37900FA0196 /* A0GoogleAuthenticator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FF7709A1B7EB37900FA0196 /* A0GoogleAuthenticator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FF7709D1B7EB37900FA0196 /* A0GoogleAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7709B1B7EB37900FA0196 /* A0GoogleAuthenticator.m */; };
 		5FF770A01B7EB7DE00FA0196 /* A0GoogleProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FF7709E1B7EB7DE00FA0196 /* A0GoogleProvider.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -22,6 +21,7 @@
 		5FF770B91B7EDDDF00FA0196 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF770B71B7EDDDF00FA0196 /* LaunchScreen.xib */; };
 		5FF770CE1B7EE14E00FA0196 /* LockGoogleProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF770CD1B7EE14E00FA0196 /* LockGoogleProvider.m */; };
 		5FF770CF1B7EE1BA00FA0196 /* LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7707E1B7EAEA700FA0196 /* LockGoogle.framework */; };
+		5FF770D11B7EF7D100FA0196 /* A0GoogleProviderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF770D01B7EF7D100FA0196 /* A0GoogleProviderSpec.m */; };
 		E1F51EC406D09646A5772C35 /* Pods_LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF150807D8AF7B5F39D0AD8D /* Pods_LockGoogle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F986BF3960687088B4EBD346 /* Pods_LockGoogleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5597A513047F4ECE85EB3B /* Pods_LockGoogleTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -44,7 +44,6 @@
 		5FF770831B7EAEA700FA0196 /* LockGoogle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockGoogle.h; sourceTree = "<group>"; };
 		5FF770891B7EAEA700FA0196 /* LockGoogleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockGoogleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF7708F1B7EAEA700FA0196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5FF770901B7EAEA700FA0196 /* LockGoogleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LockGoogleTests.m; sourceTree = "<group>"; };
 		5FF7709A1B7EB37900FA0196 /* A0GoogleAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0GoogleAuthenticator.h; sourceTree = "<group>"; };
 		5FF7709B1B7EB37900FA0196 /* A0GoogleAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0GoogleAuthenticator.m; sourceTree = "<group>"; };
 		5FF7709E1B7EB7DE00FA0196 /* A0GoogleProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0GoogleProvider.h; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		5FF770B81B7EDDDF00FA0196 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5FF770CC1B7EE14E00FA0196 /* LockGoogleProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockGoogleProvider.h; sourceTree = "<group>"; };
 		5FF770CD1B7EE14E00FA0196 /* LockGoogleProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockGoogleProvider.m; sourceTree = "<group>"; };
+		5FF770D01B7EF7D100FA0196 /* A0GoogleProviderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0GoogleProviderSpec.m; sourceTree = "<group>"; };
 		8195CC8FF3090C4BF7841B99 /* Pods-LockGoogleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogleTests/Pods-LockGoogleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA7DCAB7475CB7C64E95B8F7 /* Pods-LockGoogle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogle/Pods-LockGoogle.debug.xcconfig"; sourceTree = "<group>"; };
 		BF150807D8AF7B5F39D0AD8D /* Pods_LockGoogle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockGoogle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,8 +151,8 @@
 		5FF7708D1B7EAEA700FA0196 /* LockGoogleTests */ = {
 			isa = PBXGroup;
 			children = (
-				5FF770901B7EAEA700FA0196 /* LockGoogleTests.m */,
 				5FF7708E1B7EAEA700FA0196 /* Supporting Files */,
+				5FF770D01B7EF7D100FA0196 /* A0GoogleProviderSpec.m */,
 			);
 			path = LockGoogleTests;
 			sourceTree = "<group>";
@@ -435,7 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FF770911B7EAEA700FA0196 /* LockGoogleTests.m in Sources */,
+				5FF770D11B7EF7D100FA0196 /* A0GoogleProviderSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,5 +8,7 @@ end
 target 'LockGoogleTests' do
   pod 'Specta'
   pod 'Expecta'
+  pod 'OCMockito'
+  pod 'Google/SignIn', '~> 1.0'
 end
 

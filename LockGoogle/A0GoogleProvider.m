@@ -59,8 +59,11 @@
 }
 
 - (void)cancelAuthentication {
-    self.onAuthentication([A0Errors googleplusCancelled], nil);
+    A0GoogleAuthentication callback = self.onAuthentication;
     self.onAuthentication = ^(NSError *error, NSString *token) {};
+    dispatch_async(dispatch_get_main_queue(), ^{
+        callback([A0Errors googleplusCancelled], nil);
+    });
 }
 
 - (BOOL)handleURL:(NSURL * __nonnull)url sourceApplication:(NSString * __nonnull)sourceApplication {
@@ -74,13 +77,14 @@
 #pragma mark - GPPSignInDelegate
 
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    A0GoogleAuthentication callback = self.onAuthentication;
+    self.onAuthentication = ^(NSError *error, NSString *token) {};
     dispatch_async(dispatch_get_main_queue(), ^{
         if (error) {
-            self.onAuthentication(error, nil);
+            callback(error, nil);
         } else {
-            self.onAuthentication(nil, user.authentication.accessToken);
+            callback(nil, user.authentication.accessToken);
         }
-        self.onAuthentication = ^(NSError *error, NSString *token) {};
     });
 }
 
