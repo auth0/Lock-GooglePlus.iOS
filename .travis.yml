@@ -1,12 +1,9 @@
 language: objective-c
-podfile: Example/Podfile
+osx_image: xcode6.4
 before_install:
-- gem install cocoapods --no-rdoc --no-ri --no-document
-- pod install --project-directory=Example
-install:
-- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+- gem install cocoapods xcpretty --no-rdoc --no-ri --no-document
 script:
-- set -o pipefail && xcodebuild test -workspace Example/Lock-GooglePlus.xcworkspace -scheme Lock-GooglePlus -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- set -o pipefail && xcodebuild test -workspace LockGoogle.xcworkspace -scheme LockGoogle -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
 - pod lib lint --quick
 notifications:
   slack:
