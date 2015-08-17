@@ -33,26 +33,29 @@
 #define A0LogVerbose(fmt, ...)
 #define A0LogDebug(fmt, ...)
 
+NSString * const DefaultConnectionName = @"google-oauth2";
+
 @interface A0GoogleAuthenticator ()
-
 @property (strong, nonatomic) A0GoogleProvider *google;
-
+@property (copy, nonatomic) NSString *connectionName;
 @end
 
 @implementation A0GoogleAuthenticator
 
-- (instancetype)initWithClientId:(NSString *)clientId {
-    return [self initWithClientId:clientId scopes:nil];
+- (instancetype)initWithConnectionName:(NSString *)connectionName andClientId:(NSString *)clientId {
+    return [self initWithConnectionName:connectionName andClientId:clientId scopes:nil];
 }
 
-- (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes {
-    return [self initWithGoogleProvider:[[A0GoogleProvider alloc] initWithClientId:clientId scopes:scopes]];
+- (instancetype)initWithConnectionName:(NSString *)connectionName andClientId:(NSString *)clientId scopes:(NSArray *)scopes {
+    return [self initWithConnectionName:connectionName
+                      andGoogleProvider:[[A0GoogleProvider alloc] initWithClientId:clientId scopes:scopes]];
 }
 
-- (instancetype)initWithGoogleProvider:(A0GoogleProvider *)google {
+- (instancetype)initWithConnectionName:(NSString *)connectionName andGoogleProvider:(A0GoogleProvider *)google {
     self = [super init];
     if (self) {
         _google = google;
+        _connectionName = [connectionName copy];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
     return self;
@@ -65,16 +68,24 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withClientId:(NSString *)clientId {
+    return [[A0GoogleAuthenticator alloc] initWithConnectionName:connectionName andClientId:clientId];
+}
+
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withClientId:(NSString *)clientId andScopes:(NSArray *)scopes {
+    return [[A0GoogleAuthenticator alloc] initWithConnectionName:connectionName andClientId:clientId scopes:scopes];
+}
+
 + (instancetype)newAuthenticatorWithClientId:(NSString *)clientId {
-    return [[A0GoogleAuthenticator alloc] initWithClientId:clientId];
+    return [self newAuthenticatorForConnectionName:DefaultConnectionName withClientId:clientId];
 }
 
 + (instancetype)newAuthenticatorWithClientId:(NSString *)clientId andScopes:(NSArray *)scopes {
-    return [[A0GoogleAuthenticator alloc] initWithClientId:clientId scopes:scopes];
+    return [self newAuthenticatorForConnectionName:DefaultConnectionName withClientId:clientId andScopes:scopes];
 }
 
 - (NSString *)identifier {
-    return @"google-oauth2";
+    return self.connectionName;
 }
 
 - (void)authenticateWithParameters:(A0AuthParameters *)parameters

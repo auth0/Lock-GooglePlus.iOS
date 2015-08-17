@@ -39,7 +39,7 @@
 
 @interface A0GoogleAuthenticator (Testing)
 @property (strong, nonatomic) A0GoogleProvider *google;
-- (instancetype)initWithGoogleProvider:(A0GoogleProvider *)google;
+- (instancetype)initWithConnectionName:(NSString *)connectionName andGoogleProvider:(A0GoogleProvider *)google;
 - (void)handleDidBecomeActive:(NSNotification *)notification;
 @end
 
@@ -55,8 +55,21 @@ beforeEach(^{
     clientProvider = MKTMockProtocol(@protocol(A0APIClientProvider));
     client = MKTMock(A0APIClient.class);
     [MKTGiven([clientProvider apiClient]) willReturn:client];
-    authenticator = [[A0GoogleAuthenticator alloc] initWithGoogleProvider:google];
+    authenticator = [[A0GoogleAuthenticator alloc] initWithConnectionName:kDefaultConnectionName andGoogleProvider:google];
     authenticator.clientProvider = clientProvider;
+});
+
+describe(@"authenticator identifier", ^{
+
+    it(@"should have the default conneciton name", ^{
+        expect(authenticator.identifier).to.equal(kDefaultConnectionName);
+    });
+
+    it(@"should allow custom connection name", ^{
+        NSString *name = @"my-google-connection";
+        authenticator = [[A0GoogleAuthenticator alloc] initWithConnectionName:name andGoogleProvider:google];
+        expect(authenticator.identifier).to.equal(name);
+    });
 });
 
 describe(@"authenticate", ^{
