@@ -1,4 +1,4 @@
-// A0GooglePlusAuthenticatorSpec.m
+// A0GoogleProvider.h
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -20,26 +20,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "Specta.h"
-#import "A0GooglePlusAuthenticator.h"
+#import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
-SpecBegin(A0GooglePlusAuthenticator)
+typedef void(^A0GoogleAuthentication)(NSError * __nullable error, NSString * __nullable idToken);
 
-describe(@"A0GooglePlusAuthenticator", ^{
+@interface A0GoogleProvider : NSObject
 
-    __block A0GooglePlusAuthenticator *authenticator;
+- (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes;
 
-    it(@"should create new instance using clientId", ^{
-        authenticator = [A0GooglePlusAuthenticator newAuthenticatorWithClientId:@"CLIENT_ID"];
-        expect(authenticator).toNot.beNil();
-    });
+- (void)authenticateWithScopes:(nullable NSArray *)scopes callback:(A0GoogleAuthentication)callback;
+- (void)cancelAuthentication;
+- (void)clearSession;
+- (BOOL)handleURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
 
-    it(@"should create new instance using clientId and scopes", ^{
-        authenticator = [A0GooglePlusAuthenticator newAuthenticatorWithClientId:@"CLIENT_ID" andScopes:@[@"profile"]];
-        expect(authenticator).toNot.beNil();
-    });
+@end
 
-});
-
-SpecEnd
+NS_ASSUME_NONNULL_END

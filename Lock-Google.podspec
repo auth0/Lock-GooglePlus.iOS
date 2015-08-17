@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name             = "Lock-GooglePlus"
-  s.version          = "1.1.0"
-  s.summary          = "Google+ Native Integration for Auth0 Lock"
+  s.name             = "Lock-Google"
+  s.version          = "2.0.0"
+  s.summary          = "Google Native Integration for Auth0 Lock"
   s.description      = <<-DESC
                       [![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)
                       Plugin for [Auth0 Lock](https://github.com/auth0/Lock.iOS-OSX) that handles authentication using Google+ iOS SDK.
@@ -14,12 +14,12 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
-  s.module_name = 'LockGooglePlus'
+  s.module_name = 'LockGoogle'
 
-  s.public_header_files = 'Pod/Classes/*.h'
-  s.source_files = 'Pod/Classes/*.{h,m}'
+  s.public_header_files = ['LockGoogle/A0GoogleAuthenticator.h', 'LockGoogle/LockGoogle.h']
+  s.private_header_files = 'LockGoogle/A0GoogleProvider.h'
+  s.source_files = 'LockGoogle/*.{h,m}'
 
-  s.dependency 'googleplus-ios-sdk', '~> 1.7.1'
+  s.dependency 'Google/SignIn', '~> 1.0'
   s.dependency 'Lock/Core', '~> 1.11'
-  s.deprecated = true
 end

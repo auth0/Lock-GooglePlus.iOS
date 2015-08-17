@@ -1,4 +1,4 @@
-// A0GooglePlusAuthenticator.h
+// A0GoogleAuthenticator.h
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -24,9 +24,30 @@
 #import <Lock/A0BaseAuthenticator.h>
 
 /**
- * `A0GooglePlusAuthenticator` performs Google+ authentication using Google's official SDK.
+ * Performs Google authentication using Google's official SDK.
  */
-@interface A0GooglePlusAuthenticator : A0BaseAuthenticator
+@interface A0GoogleAuthenticator : A0BaseAuthenticator
+
+/**
+ *  Creates a new Google authenticator for a custom connection.
+ *
+ *  @param connectionName of the custom Google connection created in Auth0
+ *  @param clientId       for your application obtained from Google API dashboard
+ *
+ *  @return a new instance
+ */
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withClientId:(NSString *)clientId;
+
+/**
+ *  Creates a new Google authenticator for a custom connection.
+ *
+ *  @param connectionName of the custom Google connection created in Auth0
+ *  @param clientId       for your application obtained from Google API dashboard
+ *  @param scopes         sent to Google API to authenticate
+ *
+ *  @return a new instance
+ */
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withClientId:(NSString *)clientId andScopes:(NSArray *)scopes;
 
 /**
  *  Creates a new authenticator with default scopes (login and email) and a clientId.
@@ -41,9 +62,10 @@
  *  Creates a new authenticator with a list of scopes and a clientId.
  *
  *  @param clientId application clientId in Google+
- *  @param scopes   list of scopes to send to Google+ API.
+ *  @param scopes   list of scopes to send to Google API.
  *
  *  @return a new instance
  */
 + (instancetype)newAuthenticatorWithClientId:(NSString *)clientId andScopes:(NSArray *)scopes;
+
 @end
