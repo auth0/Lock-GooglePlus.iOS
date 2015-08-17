@@ -46,9 +46,13 @@
 }
 
 - (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes {
+    return [self initWithGoogleProvider:[[A0GoogleProvider alloc] initWithClientId:clientId scopes:scopes]];
+}
+
+- (instancetype)initWithGoogleProvider:(A0GoogleProvider *)google {
     self = [super init];
     if (self) {
-        _google = [[A0GoogleProvider alloc] initWithClientId:clientId scopes:scopes];
+        _google = google;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
     return self;

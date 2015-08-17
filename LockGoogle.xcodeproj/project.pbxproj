@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F6BCBFA1B825627008A63C9 /* A0GoogleAuthenticatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6BCBF91B825627008A63C9 /* A0GoogleAuthenticatorSpec.m */; };
 		5FF770841B7EAEA700FA0196 /* LockGoogle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FF770831B7EAEA700FA0196 /* LockGoogle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FF7708A1B7EAEA700FA0196 /* LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7707E1B7EAEA700FA0196 /* LockGoogle.framework */; };
 		5FF7709C1B7EB37900FA0196 /* A0GoogleAuthenticator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FF7709A1B7EB37900FA0196 /* A0GoogleAuthenticator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		3314568F8BBE530B44D7C3A6 /* Pods-LockGoogleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogleTests/Pods-LockGoogleTests.release.xcconfig"; sourceTree = "<group>"; };
 		4BAEFA481040D4BDA551B191 /* Pods-LockGoogle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogle.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogle/Pods-LockGoogle.release.xcconfig"; sourceTree = "<group>"; };
+		5F6BCBF91B825627008A63C9 /* A0GoogleAuthenticatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0GoogleAuthenticatorSpec.m; sourceTree = "<group>"; };
 		5FF7707E1B7EAEA700FA0196 /* LockGoogle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockGoogle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF770821B7EAEA700FA0196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF770831B7EAEA700FA0196 /* LockGoogle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockGoogle.h; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				5FF7708E1B7EAEA700FA0196 /* Supporting Files */,
 				5FF770D01B7EF7D100FA0196 /* A0GoogleProviderSpec.m */,
+				5F6BCBF91B825627008A63C9 /* A0GoogleAuthenticatorSpec.m */,
 			);
 			path = LockGoogleTests;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6BCBFA1B825627008A63C9 /* A0GoogleAuthenticatorSpec.m in Sources */,
 				5FF770D11B7EF7D100FA0196 /* A0GoogleProviderSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
