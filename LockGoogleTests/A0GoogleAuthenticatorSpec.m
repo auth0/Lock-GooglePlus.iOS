@@ -34,6 +34,8 @@
 #import <Lock/A0AuthParameters.h>
 #import <Lock/A0APIClientProvider.h>
 #import <Lock/A0IdentityProviderCredentials.h>
+#import <Lock/A0Token.h>
+#import <Lock/A0UserProfile.h>
 
 #define kDefaultConnectionName @"google-oauth2"
 

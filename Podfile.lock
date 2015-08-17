@@ -98,9 +98,12 @@ PODS:
   - Specta (1.0.3)
 
 DEPENDENCIES:
+  - CocoaLumberjack
   - Expecta
   - Google/SignIn (~> 1.0)
+  - ISO8601DateFormatter
   - Lock/Core (~> 1.17)
+  - OCHamcrest
   - OCMockito
   - Specta
 

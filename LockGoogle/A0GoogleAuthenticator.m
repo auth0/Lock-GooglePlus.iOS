@@ -97,10 +97,10 @@ NSString * const DefaultConnectionName = @"google-oauth2";
     NSString *connectionName = [self identifier];
     [self.google authenticateWithScopes:[self scopesFromParameters:parameters] callback:^(NSError *error, NSString *token) {
         if (error) {
-            A0LogError(@"Failed to authenticate with Google+ with error %@", error);
+            A0LogError(@"Failed to authenticate with Google with error %@", error);
             failure(error);
         } else {
-            A0LogVerbose(@"Authenticated with Google+");
+            A0LogVerbose(@"Authenticated with Google. Token: %@", token);
             A0IdentityProviderCredentials *credentials = [[A0IdentityProviderCredentials alloc] initWithAccessToken:token];
             [client authenticateWithSocialConnectionName:connectionName
                                              credentials:credentials
@@ -109,12 +109,12 @@ NSString * const DefaultConnectionName = @"google-oauth2";
                                                  failure:failure];
         }
     }];
-    A0LogVerbose(@"Starting Google+ Authentication...");
+    A0LogVerbose(@"Started Google authentication with connection name %@", connectionName);
 }
 
 - (void)clearSessions {
     [self.google clearSession];
-    A0LogVerbose(@"Cleared Google+ session");
+    A0LogVerbose(@"Cleaned up Google session");
 }
 
 - (BOOL)handleURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication {
@@ -130,6 +130,7 @@ NSString * const DefaultConnectionName = @"google-oauth2";
 - (NSArray *)scopesFromParameters:(A0AuthParameters *)parameters {
     NSArray *connectionScopes = parameters.connectionScopes[self.identifier];
     if (connectionScopes.count == 0) {
+        A0LogDebug(@"Using Google default scopes");
         return nil;
     }
     A0LogDebug(@"Google scopes %@", connectionScopes);

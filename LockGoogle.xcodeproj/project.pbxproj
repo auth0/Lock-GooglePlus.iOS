@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EF43B4786FF3A261A74541D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E172A40A74415475ABBBAC7C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5F6BCBFA1B825627008A63C9 /* A0GoogleAuthenticatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6BCBF91B825627008A63C9 /* A0GoogleAuthenticatorSpec.m */; };
 		5FF770841B7EAEA700FA0196 /* LockGoogle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FF770831B7EAEA700FA0196 /* LockGoogle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FF7708A1B7EAEA700FA0196 /* LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7707E1B7EAEA700FA0196 /* LockGoogle.framework */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		3314568F8BBE530B44D7C3A6 /* Pods-LockGoogleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogleTests/Pods-LockGoogleTests.release.xcconfig"; sourceTree = "<group>"; };
 		4BAEFA481040D4BDA551B191 /* Pods-LockGoogle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogle.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogle/Pods-LockGoogle.release.xcconfig"; sourceTree = "<group>"; };
+		5F50B37F4F895B6A616F33CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5F6BCBF91B825627008A63C9 /* A0GoogleAuthenticatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0GoogleAuthenticatorSpec.m; sourceTree = "<group>"; };
 		5FF7707E1B7EAEA700FA0196 /* LockGoogle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockGoogle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF770821B7EAEA700FA0196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +69,8 @@
 		AA7DCAB7475CB7C64E95B8F7 /* Pods-LockGoogle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogle/Pods-LockGoogle.debug.xcconfig"; sourceTree = "<group>"; };
 		BF150807D8AF7B5F39D0AD8D /* Pods_LockGoogle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockGoogle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5597A513047F4ECE85EB3B /* Pods_LockGoogleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockGoogleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E172A40A74415475ABBBAC7C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5F1D2AA353BE5858C5E61E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1F51EC406D09646A5772C35 /* Pods_LockGoogle.framework in Frameworks */,
+				3EF43B4786FF3A261A74541D /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +108,7 @@
 			children = (
 				BF150807D8AF7B5F39D0AD8D /* Pods_LockGoogle.framework */,
 				DE5597A513047F4ECE85EB3B /* Pods_LockGoogleTests.framework */,
+				E172A40A74415475ABBBAC7C /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,6 +207,8 @@
 				4BAEFA481040D4BDA551B191 /* Pods-LockGoogle.release.xcconfig */,
 				8195CC8FF3090C4BF7841B99 /* Pods-LockGoogleTests.debug.xcconfig */,
 				3314568F8BBE530B44D7C3A6 /* Pods-LockGoogleTests.release.xcconfig */,
+				5F50B37F4F895B6A616F33CE /* Pods.debug.xcconfig */,
+				F5F1D2AA353BE5858C5E61E5 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -389,7 +397,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockGoogle/Pods-LockGoogle-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C5F764F2733D3EE73FD41620 /* Copy Pods Resources */ = {
@@ -574,7 +582,7 @@
 		};
 		5FF770951B7EAEA700FA0196 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA7DCAB7475CB7C64E95B8F7 /* Pods-LockGoogle.debug.xcconfig */;
+			baseConfigurationReference = 5F50B37F4F895B6A616F33CE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -590,7 +598,7 @@
 		};
 		5FF770961B7EAEA700FA0196 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BAEFA481040D4BDA551B191 /* Pods-LockGoogle.release.xcconfig */;
+			baseConfigurationReference = F5F1D2AA353BE5858C5E61E5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

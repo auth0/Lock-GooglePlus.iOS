@@ -24,6 +24,10 @@
 #import <Google/SignIn.h>
 #import <Lock/A0Errors.h>
 
+#define A0LogError(fmt, ...)
+#define A0LogVerbose(fmt, ...)
+#define A0LogDebug(fmt, ...)
+
 @interface A0GoogleProvider () <GIDSignInDelegate, GIDSignInUIDelegate>
 @property (strong, nonatomic) GIDSignIn *authentication;
 @property (copy, nonatomic) A0GoogleAuthentication onAuthentication;
@@ -55,6 +59,7 @@
         self.authentication.scopes = scopes;
     }
     self.onAuthentication = callback;
+    A0LogVerbose(@"Authenticating with Google with clientId %@, scopes %@", self.authentication.clientID, self.authentication.scopes);
     [self.authentication signIn];
 }
 
@@ -81,8 +86,10 @@
     self.onAuthentication = ^(NSError *error, NSString *token) {};
     dispatch_async(dispatch_get_main_queue(), ^{
         if (error) {
+            A0LogError(@"Failed Google authentication with error %@", error);
             callback(error, nil);
         } else {
+            A0LogDebug(@"Authenticated Google User with ID %@", user.userID);
             callback(nil, user.authentication.accessToken);
         }
     });
