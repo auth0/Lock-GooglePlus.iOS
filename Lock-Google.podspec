@@ -1,10 +1,12 @@
+version = `agvtool mvers -terse1`.strip
 Pod::Spec.new do |s|
   s.name             = "Lock-Google"
-  s.version          = "2.0.0"
+  s.version          = version
   s.summary          = "Google Native Integration for Auth0 Lock"
   s.description      = <<-DESC
                       [![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)
-                      Plugin for [Auth0 Lock](https://github.com/auth0/Lock.iOS-OSX) that handles authentication using Google+ iOS SDK.
+                      Plugin for [Auth0 Lock](https://github.com/auth0/Lock.iOS-OSX) that handles authentication using Google iOS SDK.
+                      > This plugin replaces the deprecated `Lock-GooglePlus` plugin
                        DESC
   s.homepage         = "https://github.com/auth0/Lock-Google.iOS"
   s.license          = 'MIT'
