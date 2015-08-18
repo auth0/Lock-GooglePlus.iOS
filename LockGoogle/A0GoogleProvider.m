@@ -88,6 +88,14 @@
     [self.authentication signOut];
 }
 
+- (void)applicationLaunchedWithOptions:(NSDictionary *)launchOptions {
+    NSError *error;
+    [[GGLContext sharedInstance] configureWithError: &error];
+    if (error) {
+        A0LogDebug(@"Failed to configure from plist file with error %@", error);
+    }
+}
+
 #pragma mark - GPPSignInDelegate
 
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {

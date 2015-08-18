@@ -207,5 +207,10 @@ describe(@"lifecycle", ^{
         [authenticator handleDidBecomeActive:notification];
         [MKTVerify(google) cancelAuthentication];
     });
+
+    it(@"should notify provider of app launch", ^{
+        [authenticator applicationLaunchedWithOptions:@{}];
+        [MKTVerify(google) applicationLaunchedWithOptions:@{}];
+    });
 });
 SpecEnd

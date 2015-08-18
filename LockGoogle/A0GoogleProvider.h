@@ -35,6 +35,7 @@ typedef void(^A0GoogleAuthentication)(NSError * __nullable error, NSString * __n
 - (void)cancelAuthentication;
 - (void)clearSession;
 - (BOOL)handleURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
+- (void)applicationLaunchedWithOptions:(NSDictionary *)launchOptions;
 
 @end
 

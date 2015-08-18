@@ -42,8 +42,9 @@ NSString * const DefaultConnectionName = @"google-oauth2";
 
 @implementation A0GoogleAuthenticator
 
-- (instancetype)initWithConnectionName:(NSString *)connectionName andClientId:(NSString *)clientId {
-    return [self initWithConnectionName:connectionName andClientId:clientId scopes:nil];
+- (instancetype)initWithConnectionName:(NSString *)connectionName andScopes:(NSArray *)scopes {
+    return [self initWithConnectionName:connectionName
+                      andGoogleProvider:[[A0GoogleProvider alloc] initWithScopes:scopes]];
 }
 
 - (instancetype)initWithConnectionName:(NSString *)connectionName andClientId:(NSString *)clientId scopes:(NSArray *)scopes {
@@ -62,26 +63,11 @@ NSString * const DefaultConnectionName = @"google-oauth2";
 }
 
 - (void)applicationLaunchedWithOptions:(NSDictionary *)launchOptions {
+    [self.google applicationLaunchedWithOptions:launchOptions];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-+ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withClientId:(NSString *)clientId {
-    return [[A0GoogleAuthenticator alloc] initWithConnectionName:connectionName andClientId:clientId];
-}
-
-+ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withClientId:(NSString *)clientId andScopes:(NSArray *)scopes {
-    return [[A0GoogleAuthenticator alloc] initWithConnectionName:connectionName andClientId:clientId scopes:scopes];
-}
-
-+ (instancetype)newAuthenticatorWithClientId:(NSString *)clientId {
-    return [self newAuthenticatorForConnectionName:DefaultConnectionName withClientId:clientId];
-}
-
-+ (instancetype)newAuthenticatorWithClientId:(NSString *)clientId andScopes:(NSArray *)scopes {
-    return [self newAuthenticatorForConnectionName:DefaultConnectionName withClientId:clientId andScopes:scopes];
 }
 
 - (NSString *)identifier {
@@ -143,4 +129,42 @@ NSString * const DefaultConnectionName = @"google-oauth2";
     return [self.clientProvider apiClient] ?: [A0APIClient sharedClient];
 #pragma GCC diagnostic pop
 }
+
+#pragma mark - Factory methods for default connection
+
++ (instancetype)newAuthenticator {
+    return [[A0GoogleAuthenticator alloc] initWithConnectionName:DefaultConnectionName andScopes:nil];
+}
+
++ (instancetype)newAuthenticatorWithScopes:(NSArray *)scopes {
+    return [[A0GoogleAuthenticator alloc] initWithConnectionName:DefaultConnectionName andScopes:scopes];
+}
+
++ (instancetype)newAuthenticatorWithClientId:(NSString *)clientId {
+    return [self newAuthenticatorForConnectionName:DefaultConnectionName withClientId:clientId];
+}
+
++ (instancetype)newAuthenticatorWithClientId:(NSString *)clientId andScopes:(NSArray *)scopes {
+    return [self newAuthenticatorForConnectionName:DefaultConnectionName withClientId:clientId andScopes:scopes];
+}
+
+#pragma mark - Factory methods for custom connection
+
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName {
+    return [[A0GoogleAuthenticator alloc] initWithConnectionName:connectionName andScopes:nil];
+}
+
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withScopes:(NSArray *)scopes {
+    return [[A0GoogleAuthenticator alloc] initWithConnectionName:connectionName andScopes:scopes];
+}
+
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withClientId:(NSString *)clientId {
+    return [[A0GoogleAuthenticator alloc] initWithConnectionName:connectionName andClientId:clientId scopes:nil];
+}
+
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withClientId:(NSString *)clientId andScopes:(NSArray *)scopes {
+    return [[A0GoogleAuthenticator alloc] initWithConnectionName:connectionName andClientId:clientId scopes:scopes];
+}
+
+
 @end

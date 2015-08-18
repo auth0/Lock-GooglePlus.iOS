@@ -13,7 +13,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _authenticator = [A0GoogleAuthenticator newAuthenticatorWithClientId:@"856630117504-qmpg3s5fto99l8splr3u1npcb1rd2bnk.apps.googleusercontent.com"];
+        _authenticator = [A0GoogleAuthenticator newAuthenticator];
         _lock = [A0Lock newLock];
         _authenticator.clientProvider = _lock;
 
