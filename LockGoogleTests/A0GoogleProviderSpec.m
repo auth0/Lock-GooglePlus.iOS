@@ -117,7 +117,6 @@ describe(@"authenticate", ^{
             [google authenticateWithScopes:nil callback:^(NSError *error, NSString *token) {}];
             [MKTVerifyCount(authentication, MKTTimes(1)) setScopes:HC_anything()];
         });
-
     });
 
     context(@"with scopes", ^{
@@ -132,6 +131,21 @@ describe(@"authenticate", ^{
         it(@"should not set scopes", ^{
             [google authenticateWithScopes:scopes callback:^(NSError *error, NSString *token) {}];
             [MKTVerify(authentication) setScopes:scopes];
+        });
+    });
+
+    context(@"with server clientId", ^{
+        it(@"should start flow", ^{
+            google.serverClientId = @"Server ClientId";
+            [google authenticateWithScopes:nil callback:^(NSError *error, NSString *token) {}];
+            [MKTVerify(authentication) signIn];
+        });
+
+        it(@"should set serverClientId", ^{
+            NSString *serverClientId = @"Server ClientId";
+            google.serverClientId = serverClientId;
+            [google authenticateWithScopes:nil callback:^(NSError *error, NSString *token) {}];
+            [MKTVerify(authentication) setServerClientID:serverClientId];
         });
 
     });
@@ -149,7 +163,6 @@ describe(@"authenticate", ^{
                 [google cancelAuthentication];
             });
         });
-
     });
 
     context(@"when signIn:didSigninForUser:withError called", ^{
