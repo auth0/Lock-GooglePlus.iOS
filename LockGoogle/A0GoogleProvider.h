@@ -28,12 +28,14 @@ typedef void(^A0GoogleAuthentication)(NSError * __nullable error, NSString * __n
 
 @interface A0GoogleProvider : NSObject
 
+- (instancetype)initWithScopes:(NSArray *)scopes;
 - (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes;
 
 - (void)authenticateWithScopes:(nullable NSArray *)scopes callback:(A0GoogleAuthentication)callback;
 - (void)cancelAuthentication;
 - (void)clearSession;
 - (BOOL)handleURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
+- (void)applicationLaunchedWithOptions:(NSDictionary *)launchOptions;
 
 @end
 

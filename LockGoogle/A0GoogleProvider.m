@@ -35,15 +35,24 @@
 
 @implementation A0GoogleProvider
 
+- (instancetype)initWithScopes:(NSArray *)scopes {
+    GIDSignIn *authentication = [GIDSignIn sharedInstance];
+    return [self initWithAuthentication:authentication scopes:scopes];
+}
+
 - (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes {
     GIDSignIn *authentication = [GIDSignIn sharedInstance];
     return [self initWithAuthentication:authentication clientId:clientId scopes:scopes];
 }
 
 - (instancetype)initWithAuthentication:(GIDSignIn *)authentication clientId:(NSString *)clientId scopes:(NSArray *)scopes {
+    authentication.clientID = clientId;
+    return [self initWithAuthentication:authentication scopes:scopes];
+}
+
+- (instancetype)initWithAuthentication:(GIDSignIn *)authentication scopes:(NSArray *)scopes {
     self = [super init];
     if (self) {
-        authentication.clientID = clientId;
         authentication.scopes = scopes;
         authentication.delegate = self;
         authentication.uiDelegate = self;
@@ -77,6 +86,14 @@
 
 - (void)clearSession {
     [self.authentication signOut];
+}
+
+- (void)applicationLaunchedWithOptions:(NSDictionary *)launchOptions {
+    NSError *error;
+    [[GGLContext sharedInstance] configureWithError: &error];
+    if (error) {
+        A0LogDebug(@"Failed to configure from plist file with error %@", error);
+    }
 }
 
 #pragma mark - GPPSignInDelegate

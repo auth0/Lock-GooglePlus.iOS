@@ -29,6 +29,45 @@
 @interface A0GoogleAuthenticator : A0BaseAuthenticator
 
 /**
+ *  Creates a new authenticator with default scopes (login and email) and a clientId.
+ *  It will retrieve Google's clientId from `GoogleService-Info.plist` file
+ *
+ *  @return a new instance
+ */
++ (instancetype)newAuthenticator;
+
+/**
+ *  Creates a new authenticator with a list of scopes and a clientId.
+ *  It will retrieve Google's clientId from `GoogleService-Info.plist` file
+ *
+ *  @param scopes   list of scopes to send to Google API.
+ *
+ *  @return a new instance
+ */
++ (instancetype)newAuthenticatorWithScopes:(NSArray *)scopes;
+
+/**
+ *  Creates a new Google authenticator for a custom connection.
+ *  It will retrieve Google's clientId from `GoogleService-Info.plist` file
+ *
+ *  @param connectionName of the custom Google connection created in Auth0
+ *
+ *  @return a new instance
+ */
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName;
+
+/**
+ *  Creates a new Google authenticator for a custom connection.
+ *  It will retrieve Google's clientId from `GoogleService-Info.plist` file
+ *
+ *  @param connectionName of the custom Google connection created in Auth0
+ *  @param scopes         sent to Google API to authenticate
+ *
+ *  @return a new instance
+ */
++ (instancetype)newAuthenticatorForConnectionName:(NSString *)connectionName withScopes:(NSArray *)scopes;
+
+/**
  *  Creates a new Google authenticator for a custom connection.
  *
  *  @param connectionName of the custom Google connection created in Auth0

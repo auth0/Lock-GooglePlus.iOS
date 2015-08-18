@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3EF43B4786FF3A261A74541D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E172A40A74415475ABBBAC7C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5F6BCBFA1B825627008A63C9 /* A0GoogleAuthenticatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6BCBF91B825627008A63C9 /* A0GoogleAuthenticatorSpec.m */; };
+		5F6BCBFC1B82B3C6008A63C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F6BCBFB1B82B3C6008A63C9 /* GoogleService-Info.plist */; };
 		5FF770841B7EAEA700FA0196 /* LockGoogle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FF770831B7EAEA700FA0196 /* LockGoogle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FF7708A1B7EAEA700FA0196 /* LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF7707E1B7EAEA700FA0196 /* LockGoogle.framework */; };
 		5FF7709C1B7EB37900FA0196 /* A0GoogleAuthenticator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FF7709A1B7EB37900FA0196 /* A0GoogleAuthenticator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,6 +44,7 @@
 		4BAEFA481040D4BDA551B191 /* Pods-LockGoogle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogle.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogle/Pods-LockGoogle.release.xcconfig"; sourceTree = "<group>"; };
 		5F50B37F4F895B6A616F33CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5F6BCBF91B825627008A63C9 /* A0GoogleAuthenticatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0GoogleAuthenticatorSpec.m; sourceTree = "<group>"; };
+		5F6BCBFB1B82B3C6008A63C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FF7707E1B7EAEA700FA0196 /* LockGoogle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockGoogle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF770821B7EAEA700FA0196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF770831B7EAEA700FA0196 /* LockGoogle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockGoogle.h; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		5FF770A81B7EDDDF00FA0196 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F6BCBFB1B82B3C6008A63C9 /* GoogleService-Info.plist */,
 				5FF770A91B7EDDDF00FA0196 /* Info.plist */,
 				5FF770AA1B7EDDDF00FA0196 /* main.m */,
 			);
@@ -348,6 +351,7 @@
 			files = (
 				5FF770B41B7EDDDF00FA0196 /* Main.storyboard in Resources */,
 				5FF770B91B7EDDDF00FA0196 /* LaunchScreen.xib in Resources */,
+				5F6BCBFC1B82B3C6008A63C9 /* GoogleService-Info.plist in Resources */,
 				5FF770B61B7EDDDF00FA0196 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
