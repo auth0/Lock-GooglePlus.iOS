@@ -30,7 +30,6 @@ Add that file to your application's target and the last step is to register two 
 
 The first URL should have a scheme equal to your application Bundle Identifier, the other one should be your Google clientId reversed, so if your clientID is `com.googleusercontent.apps.CLIENTID` the scheme will be `CLIENTID.apps.googleusercontent.com`
 > This last value can be found in `GoogleServices-Info.plist` under the key `REVERSED_CLIENT_ID`
-
 > For more information please check Google's [documentation](https://developers.google.com/identity/sign-in/ios/)
 
 ## Usage
@@ -79,7 +78,7 @@ A0GoogleAuthenticator *google = [A0GoogleAuthenticator newAuthenticatorWithConne
 let google = A0GoogleAuthenticator.newAuthenticatorForConnectionName("my-google-connection")
 ```
 
-> Please check CocoaDocs for more information about LockGoogle API.
+> Please check CocoaDocs for more information about [LockGoogle API](http://cocoadocs.org/docsets/Lock-Google).
 
 ## Issue Reporting
 

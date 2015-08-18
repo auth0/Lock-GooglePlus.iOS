@@ -1,5 +1,25 @@
 # Change Log
 
+## [2.0.0](https://github.com/auth0/Lock-Google.iOS/tree/2.0.0) (2015-08-18)
+
+[Full Changelog](https://github.com/auth0/Lock-Google.iOS/compare/1.1.0...2.0.0)
+
+**Implemented enhancements:**
+
+- Allow to use custom connection name [\#5](https://github.com/auth0/Lock-Google.iOS/issues/5)
+
+- Rename to Lock-Google [\#3](https://github.com/auth0/Lock-Google.iOS/issues/3)
+
+- Use Google official podspec  [\#2](https://github.com/auth0/Lock-Google.iOS/issues/2)
+
+**Merged pull requests:**
+
+- Authenticate using server ClientId [\#7](https://github.com/auth0/Lock-Google.iOS/pull/7) ([hzalaz](https://github.com/hzalaz))
+
+- Use GoogleServices-Info.plist to configure SDK [\#6](https://github.com/auth0/Lock-Google.iOS/pull/6) ([hzalaz](https://github.com/hzalaz))
+
+- Use Google SignIn iOS library [\#4](https://github.com/auth0/Lock-Google.iOS/pull/4) ([hzalaz](https://github.com/hzalaz))
+
 ## [1.1.0](https://github.com/auth0/Lock-Google.iOS/tree/1.1.0) (2015-08-15)
 
 [Full Changelog](https://github.com/auth0/Lock-Google.iOS/compare/1.0.1...1.1.0)
