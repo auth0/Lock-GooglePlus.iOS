@@ -28,6 +28,8 @@ typedef void(^A0GoogleAuthentication)(NSError * __nullable error, NSString * __n
 
 @interface A0GoogleProvider : NSObject
 
+@property (copy, nonatomic) NSString *serverClientId;
+
 - (instancetype)initWithScopes:(NSArray *)scopes;
 - (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes;
 
