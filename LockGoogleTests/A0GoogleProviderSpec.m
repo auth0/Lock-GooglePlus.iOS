@@ -30,6 +30,7 @@
 
 @interface A0GoogleProvider (Testing) <GIDSignInDelegate, GIDSignInUIDelegate>
 - (instancetype)initWithAuthentication:(GIDSignIn *)authentication clientId:(NSString *)clientId scopes:(NSArray *)scopes;
+- (instancetype)initWithAuthentication:(GIDSignIn *)authentication scopes:(NSArray *)scopes;
 @property (copy, nonatomic) A0GoogleAuthentication onAuthentication;
 @end
 
@@ -48,22 +49,60 @@ beforeEach(^{
 
 describe(@"initialize", ^{
 
-    it(@"should set client id", ^{
-        [MKTVerify(authentication) setClientID:kClientId];
+    beforeEach(^{
+        authentication = MKTMock([GIDSignIn class]);
     });
 
-    it(@"should set scopes", ^{
-        [MKTVerify(authentication) setScopes:@[kScope]];
+    context(@"with clientId parameter", ^{
+
+        beforeEach(^{
+            google = [[A0GoogleProvider alloc] initWithAuthentication:authentication clientId:kClientId scopes:@[kScope]];
+        });
+
+        it(@"should set client id", ^{
+            [MKTVerify(authentication) setClientID:kClientId];
+        });
+
+        it(@"should set scopes", ^{
+            [MKTVerify(authentication) setScopes:@[kScope]];
+        });
+
+        it(@"should allow webview", ^{
+            [MKTVerify(authentication) setAllowsSignInWithWebView:YES];
+        });
+
+        it(@"should set delegates", ^{
+            [MKTVerify(authentication) setDelegate:google];
+            [MKTVerify(authentication) setUiDelegate:google];
+        });
+
     });
 
-    it(@"should allow webview", ^{
-        [MKTVerify(authentication) setAllowsSignInWithWebView:YES];
+    context(@"without clientId parameter", ^{
+
+        beforeEach(^{
+            google = [[A0GoogleProvider alloc] initWithAuthentication:authentication scopes:@[kScope]];
+        });
+
+        it(@"should set client id", ^{
+            [MKTVerifyCount(authentication, MKTNever()) setClientID:kClientId];
+        });
+
+        it(@"should set scopes", ^{
+            [MKTVerify(authentication) setScopes:@[kScope]];
+        });
+
+        it(@"should allow webview", ^{
+            [MKTVerify(authentication) setAllowsSignInWithWebView:YES];
+        });
+
+        it(@"should set delegates", ^{
+            [MKTVerify(authentication) setDelegate:google];
+            [MKTVerify(authentication) setUiDelegate:google];
+        });
+        
     });
 
-    it(@"should set delegates", ^{
-        [MKTVerify(authentication) setDelegate:google];
-        [MKTVerify(authentication) setUiDelegate:google];
-    });
 });
 
 describe(@"authenticate", ^{

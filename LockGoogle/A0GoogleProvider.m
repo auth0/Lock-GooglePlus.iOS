@@ -35,15 +35,24 @@
 
 @implementation A0GoogleProvider
 
+- (instancetype)initWithScopes:(NSArray *)scopes {
+    GIDSignIn *authentication = [GIDSignIn sharedInstance];
+    return [self initWithAuthentication:authentication scopes:scopes];
+}
+
 - (instancetype)initWithClientId:(NSString *)clientId scopes:(NSArray *)scopes {
     GIDSignIn *authentication = [GIDSignIn sharedInstance];
     return [self initWithAuthentication:authentication clientId:clientId scopes:scopes];
 }
 
 - (instancetype)initWithAuthentication:(GIDSignIn *)authentication clientId:(NSString *)clientId scopes:(NSArray *)scopes {
+    authentication.clientID = clientId;
+    return [self initWithAuthentication:authentication scopes:scopes];
+}
+
+- (instancetype)initWithAuthentication:(GIDSignIn *)authentication scopes:(NSArray *)scopes {
     self = [super init];
     if (self) {
-        authentication.clientID = clientId;
         authentication.scopes = scopes;
         authentication.delegate = self;
         authentication.uiDelegate = self;
