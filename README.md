@@ -1,15 +1,13 @@
-# Lock-GooglePlus
+# Lock-Google
 
-[![Build Status](https://travis-ci.org/auth0/Lock-GooglePlus.iOS.svg?branch=master)](https://travis-ci.org/auth0/Lock-GooglePlus.iOS)
-[![Version](https://img.shields.io/cocoapods/v/Lock-GooglePlus.svg?style=flat)](http://cocoapods.org/pods/Lock-GooglePlus)
-[![License](https://img.shields.io/cocoapods/l/Lock-GooglePlus.svg?style=flat)](http://cocoapods.org/pods/Lock-GooglePlus)
-[![Platform](https://img.shields.io/cocoapods/p/Lock-GooglePlus.svg?style=flat)](http://cocoapods.org/pods/Lock-GooglePlus)
-
-##IMPORTANT: Due to Apple [rejecting applications](https://code.google.com/p/google-plus-platform/issues/detail?id=900) using Google+ SDK because of using Safari to authenticate we recommend to avoid using this library until Google fixes its SDK.
+[![Build Status](https://travis-ci.org/auth0/Lock-Google.iOS.svg?branch=master)](https://travis-ci.org/auth0/Lock-Google.iOS)
+[![Version](https://img.shields.io/cocoapods/v/Lock-Google.svg?style=flat)](http://cocoapods.org/pods/Lock-Google)
+[![License](https://img.shields.io/cocoapods/l/Lock-Google.svg?style=flat)](http://cocoapods.org/pods/Lock-Google)
+[![Platform](https://img.shields.io/cocoapods/p/Lock-Google.svg?style=flat)](http://cocoapods.org/pods/Lock-Google)
 
 [Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
-Lock-GooglePlus helps you integrate native Login with [Google+ iOS SDK](https://developers.google.com/+/mobile/ios/) and [Lock](https://auth0.com/lock)
+Lock-Google helps you integrate native login with [Google iOS SDK](https://developers.google.com/identity/sign-in/ios/) and [Lock](https://auth0.com/lock)
 
 ## Requierements
 
@@ -17,71 +15,71 @@ iOS 7+
 
 ## Install
 
-The Lock-GooglePlus is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+The Lock-Google is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod "Lock-GooglePlus", "~> 1.0"
+pod "Lock-Google", "~> 2.0"
 ```
 
+## Before you start using Lock-Google
 
-Then in your project's `Info.plist` file register a custom URL Type using your app's bundle identifier. For more information please check [Google+ Getting Started Guide](https://developers.google.com/+/mobile/ios/getting-started).
+In order to use Google APIs you'll need to register your iOS application in [Google Developer Console](https://console.developers.google.com/project) and get your clientId.
+We recommend follwing [this wizard](https://developers.google.com/mobile/add?platform=ios) instead and download the file `GoogleServices-Info.plist` that is generated at the end.
+
+Add that file to your application's target and the last step is to register two custom URL for your application.
+
+The first URL should have a scheme equal to your application Bundle Identifier, the other one should be your Google clientId reversed, so if your clientID is `com.googleusercontent.apps.CLIENTID` the scheme will be `CLIENTID.apps.googleusercontent.com`
+> This last value can be found in `GoogleServices-Info.plist` under the key `REVERSED_CLIENT_ID`
+
+> For more information please check Google's [documentation](https://developers.google.com/identity/sign-in/ios/)
 
 ## Usage
 
-Just create a new instance of `A0GooglePlusAuthenticator`
+Just create a new instance of `A0GoogleAuthenticator`
 
 ```objc
-A0GooglePlusAuthenticator *googlePlus = [A0GooglePlusAuthenticator newAuthenticatorWithClientId:@"G+_CLIENT_ID"];
+A0GoogleAuthenticator *google = [A0GoogleAuthenticator newAuthenticator];
 ```
 
 ```swift
-let googlePlus = A0GooglePlusAuthenticator.newAuthenticatorWithClientId("G+_CLIENT_ID")
+let google = A0GoogleAuthenticator.newAuthenticator()
 ```
-
-> The G+ client id can be obtained from Google's API Dashboard, for more info please check this [guide](https://developers.google.com/+/mobile/ios/getting-started)
 
 and register it with your instance of `A0Lock`
 
 ```objc
 A0Lock *lock = //Get your A0Lock instance
-[lock registerAuthenticators:@[googlePlus]];
+[lock registerAuthenticators:@[google]];
 ```
 
 ```swift
 let lock:A0Lock = //Get your A0Lock instance
-lock.registerAuthenticators([googlePlus])
+lock.registerAuthenticators([google])
 ```
 
-> A good place to create and register `A0GooglePlusAuthenticator` is the `AppDelegate.m` or `AppDelegate.swift` files.
+> A good place to create and register `A0GoogleAuthenticator` is the `AppDelegate`.
 
+###Specify scopes
 
-##API
-
-###A0GooglePlusAuthenticator
-
-####A0GooglePlusAuthenticator#newAuthenticatorWithClientId
 ```objc
-+ (A0GooglePlusAuthenticator *)newAuthenticatorWithClientId:(NSString *)clientId;
+A0GoogleAuthenticator *google = [A0GoogleAuthenticator newAuthenticatorWithScopes:@[@"scope1", @"scope2"]];
 ```
-Create a new 'A0GooglePlusAuthenticator' using a G+ client identifier
-```objc
-A0GooglePlusAuthenticator *googlePlus = [A0GooglePlusAuthenticator newAuthenticatorWithClientId:@"G+_CLIENT_ID"];
-```
+
 ```swift
-let googlePlus = A0GooglePlusAuthenticator.newAuthenticatorWithClientId("G+_CLIENT_ID")
+let google = A0GoogleAuthenticator.newAuthenticatorWithScopes(["scope1", "scope2"])
 ```
 
-####A0GooglePlusAuthenticator#newAuthenticatorWithClientId:andScopes:
+###Custom Google connection
+
 ```objc
-+ (A0GooglePlusAuthenticator *)newAuthenticatorWithClientId:(NSString *)clientId andScopes:(NSArray *)scopes;
+A0GoogleAuthenticator *google = [A0GoogleAuthenticator newAuthenticatorWithConnectionName:@"my-google-connection"];
 ```
-Create a new 'A0GooglePlusAuthenticator' with a G+ client identifier and a list of scopes for G+ authentication
-```objc
-A0GooglePlusAuthenticator *googlePlus = [A0GooglePlusAuthenticator newAuthenticatorWithClientId:@"G+_CLIENT_ID" andScopes:@[@"profile"]];
-```
+
 ```swift
-let googlePlus = A0GooglePlusAuthenticator.newAuthenticatorWithClientId("G+_CLIENT_ID", andScopes:["profile"])
+let google = A0GoogleAuthenticator.newAuthenticatorForConnectionName("my-google-connection")
 ```
+
+> Please check CocoaDocs for more information about LockGoogle API.
 
 ## Issue Reporting
 
@@ -109,4 +107,4 @@ Auth0
 
 ## License
 
-Lock-GooglePlus is available under the MIT license. See the [LICENSE file](LICENSE) for more info.
+Lock-Google is available under the MIT license. See the [LICENSE file](LICENSE) for more info.
