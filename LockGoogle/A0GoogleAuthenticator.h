@@ -29,6 +29,13 @@
 @interface A0GoogleAuthenticator : A0BaseAuthenticator
 
 /**
+ * Your server's clientId obtained from Google. 
+ * Set this value if you need to use the user's token in your server so all tokens are issued to be used by your backemd
+ * By default is nil.
+ */
+@property (copy, nonatomic) NSString *serverClientId;
+
+/**
  *  Creates a new authenticator with default scopes (login and email) and a clientId.
  *  It will retrieve Google's clientId from `GoogleService-Info.plist` file
  *

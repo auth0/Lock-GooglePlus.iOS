@@ -81,6 +81,7 @@ NSString * const DefaultConnectionName = @"google-oauth2";
     NSAssert(failure != nil, @"Must provide a non-nil failure block");
     A0APIClient *client = [self apiClient];
     NSString *connectionName = [self identifier];
+    self.google.serverClientId = self.serverClientId;
     [self.google authenticateWithScopes:[self scopesFromParameters:parameters] callback:^(NSError *error, NSString *token) {
         if (error) {
             A0LogError(@"Failed to authenticate with Google with error %@", error);

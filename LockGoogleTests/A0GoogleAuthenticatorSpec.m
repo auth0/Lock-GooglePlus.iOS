@@ -80,6 +80,8 @@ describe(@"authenticate", ^{
     __block A0AuthParameters *parameters;
 
     beforeEach(^{
+        authenticator = [[A0GoogleAuthenticator alloc] initWithConnectionName:kDefaultConnectionName andGoogleProvider:google];
+        authenticator.clientProvider = clientProvider;
         googleToken = [[NSUUID UUID] UUIDString];
         parameters = [A0AuthParameters newDefaultParams];
     });
@@ -89,6 +91,15 @@ describe(@"authenticate", ^{
                                           success:^(A0UserProfile *profile, A0Token *token) {}
                                           failure:^(NSError *error){}];
         [MKTVerify(google) authenticateWithScopes:nil callback:HC_notNilValue()];
+    });
+
+    it(@"should pass along server clientid", ^{
+        NSString *serverClientId = @"Server ClientId";
+        authenticator.serverClientId = serverClientId;
+        [authenticator authenticateWithParameters:parameters
+                                          success:^(A0UserProfile *profile, A0Token *token) {}
+                                          failure:^(NSError *error){}];
+        [MKTVerify(google) setServerClientId:serverClientId];
     });
 
     it(@"should send connection scopes in parameters", ^{

@@ -67,6 +67,7 @@
     if (scopes.count > 0) {
         self.authentication.scopes = scopes;
     }
+    self.authentication.serverClientID = self.serverClientId;
     self.onAuthentication = callback;
     A0LogVerbose(@"Authenticating with Google with clientId %@, scopes %@", self.authentication.clientID, self.authentication.scopes);
     [self.authentication signIn];
