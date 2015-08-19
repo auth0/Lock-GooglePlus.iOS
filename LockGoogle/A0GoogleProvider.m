@@ -108,7 +108,8 @@
             callback(error, nil);
         } else {
             A0LogDebug(@"Authenticated Google User with ID %@", user.userID);
-            callback(nil, user.authentication.accessToken);
+            NSString *token = self.serverClientId ? user.authentication.idToken : user.authentication.accessToken;
+            callback(nil, token);
         }
     });
 }

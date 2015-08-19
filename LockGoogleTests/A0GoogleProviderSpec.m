@@ -174,12 +174,25 @@ describe(@"authenticate", ^{
             GIDAuthentication *auth = MKTMock(GIDAuthentication.class);
             [MKTGiven([user authentication]) willReturn:auth];
             [MKTGiven(auth.accessToken) willReturn:@"TOKEN"];
+            [MKTGiven(auth.idToken) willReturn:@"JWT"];
         });
 
         it(@"should send token to callback", ^{
             waitUntil(^(DoneCallback done) {
                 [google authenticateWithScopes:nil callback:^(NSError *error, NSString *token) {
                     expect(token).to.equal(@"TOKEN");
+                    expect(error).to.beNil();
+                    done();
+                }];
+                [google signIn:authentication didSignInForUser:user withError:nil];
+            });
+        });
+
+        it(@"should send jwt to callback", ^{
+            waitUntil(^(DoneCallback done) {
+                google.serverClientId = @"SERVER CLIENTID";
+                [google authenticateWithScopes:nil callback:^(NSError *error, NSString *token) {
+                    expect(token).to.equal(@"JWT");
                     expect(error).to.beNil();
                     done();
                 }];
