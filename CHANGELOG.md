@@ -1,5 +1,13 @@
 # Change Log
 
+## [2.1.0](https://github.com/auth0/Lock-Google.iOS/tree/2.1.0) (2015-08-19)
+
+[Full Changelog](https://github.com/auth0/Lock-Google.iOS/compare/2.0.0...2.1.0)
+
+**Merged pull requests:**
+
+- Send JWT instead of accessToken when serverClientId is set [\#8](https://github.com/auth0/Lock-Google.iOS/pull/8) ([hzalaz](https://github.com/hzalaz))
+
 ## [2.0.0](https://github.com/auth0/Lock-Google.iOS/tree/2.0.0) (2015-08-18)
 
 [Full Changelog](https://github.com/auth0/Lock-Google.iOS/compare/1.1.0...2.0.0)
