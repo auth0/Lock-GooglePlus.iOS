@@ -32,6 +32,22 @@ The first URL should have a scheme equal to your application Bundle Identifier, 
 > This last value can be found in `GoogleServices-Info.plist` under the key `REVERSED_CLIENT_ID`
 > For more information please check Google's [documentation](https://developers.google.com/identity/sign-in/ios/)
 
+### Auth0 Connection with multiple Google clientIDs (Web & Mobile)
+
+If you also have a Web Application, and a Google clientID & secret for it configured in Auth0, you need to whitelist the Google clientID of your mobile application in your Auth0 connection. In order to do that you'll need to perform the following API request
+
+```bash
+curl -H "Authorization: Bearer {YOUR_AUTH0_APIv2_TOKEN}" -X PATCH  -H "Content-Type: application/json" -d '{"options":{"allowed_audiences":["{YOUR_GOOGLE_CLIENT_ID_FOR_NATIVE_APP}"]}}' https://{YOUR_TENANT}.auth0.com/api/v2/connections/{CONNECTION_ID}
+```
+
+Where `YOUR_GOOGLE_CLIENT_ID_FOR_NATIVE_APP` is your iOS clientID from Google. You'll also need a valid API v2 token you an get from our [API explorer](https://auth0.com/docs/api/v2) and the ID of the connection with name `google-oauth2`. This identifier can be fetched with the following request
+
+```bash
+curl -H "Authorization: Bearer {YOUR_AUTH0_APIv2_TOKEN}" -X GET  -H "Content-Type: application/json" https://{YOUR_TENANT}.auth0.com/api/v2/connections?strategy=google-oauth2
+```
+
+> All these requests can be performed using our [API explorer](https://auth0.com/docs/api/v2) too.
+
 ## Usage
 
 Just create a new instance of `A0GoogleAuthenticator`
