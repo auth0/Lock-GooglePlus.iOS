@@ -87,7 +87,7 @@ let google = A0GoogleAuthenticator.newAuthenticatorWithScopes(["scope1", "scope2
 ###Custom Google connection
 
 ```objc
-A0GoogleAuthenticator *google = [A0GoogleAuthenticator newAuthenticatorWithConnectionName:@"my-google-connection"];
+A0GoogleAuthenticator *google = [A0GoogleAuthenticator newAuthenticatorForConnectionName:@"my-google-connection"];
 ```
 
 ```swift
