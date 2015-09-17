@@ -28,7 +28,7 @@ We recommend follwing [this wizard](https://developers.google.com/mobile/add?pla
 
 Add that file to your application's target and the last step is to register two custom URL for your application.
 
-The first URL should have a scheme equal to your application Bundle Identifier, the other one should be your Google clientId reversed, so if your clientID is `com.googleusercontent.apps.CLIENTID` the scheme will be `CLIENTID.apps.googleusercontent.com`
+The first URL should have a scheme equal to your application Bundle Identifier, the other one should be your Google clientId reversed, so if your clientID is `CLIENTID.apps.googleusercontent.com` the scheme will be `com.googleusercontent.apps.CLIENTID`
 > This last value can be found in `GoogleServices-Info.plist` under the key `REVERSED_CLIENT_ID`
 > For more information please check Google's [documentation](https://developers.google.com/identity/sign-in/ios/)
 
