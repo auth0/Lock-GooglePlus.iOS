@@ -17,8 +17,25 @@ iOS 7+
 
 The Lock-Google is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
+### CocoaPods
+
 ```ruby
 pod "Lock-Google", "~> 2.0"
+```
+
+#### Swift & Frameworks
+
+If you are using CocoaPods with the `uses_frameworks!` flag in your `Podfile`, adding **Lock-Google** might make CocoaPods fail because Google SignIn library is distributed as a static lib. A workaround for this case is to add the following files to your project:
+
+* [A0GoogleAuthenticator.h](https://github.com/auth0/Lock-Google.iOS/blob/master/LockGoogle/A0GoogleAuthenticator.h)
+* [A0GoogleAuthenticator.m](https://github.com/auth0/Lock-Google.iOS/blob/master/LockGoogle/A0GoogleAuthenticator.m)
+* [A0GoogleProvider.h](https://github.com/auth0/Lock-Google.iOS/blob/master/LockGoogle/A0GoogleProvider.h)
+* [A0GoogleProvider.m](https://github.com/auth0/Lock-Google.iOS/blob/master/LockGoogle/A0GoogleProvider.m)
+ 
+And [Google SignIn](https://developers.google.com/identity/sign-in/ios/sdk/?hl=en) library to your project or to your `Podfile` like this:
+
+```ruby
+pod 'Google/SignIn', '~> 1.0'
 ```
 
 ## Before you start using Lock-Google
