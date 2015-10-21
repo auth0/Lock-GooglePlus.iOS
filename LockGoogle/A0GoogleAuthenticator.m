@@ -33,7 +33,7 @@
 #define A0LogVerbose(fmt, ...)
 #define A0LogDebug(fmt, ...)
 
-NSString * const DefaultConnectionName = @"google-oauth2";
+static NSString * const DefaultConnectionName = @"google-oauth2";
 
 @interface A0GoogleAuthenticator ()
 @property (strong, nonatomic) A0GoogleProvider *google;
