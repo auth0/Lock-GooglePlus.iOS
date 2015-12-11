@@ -31,6 +31,7 @@
 @interface A0GoogleProvider () <GIDSignInDelegate, GIDSignInUIDelegate>
 @property (strong, nonatomic) GIDSignIn *authentication;
 @property (copy, nonatomic) A0GoogleAuthentication onAuthentication;
+@property (assign, nonatomic) BOOL authenticating;
 @end
 
 @implementation A0GoogleProvider
@@ -59,6 +60,7 @@
         authentication.allowsSignInWithWebView = YES;
         _authentication = authentication;
         _onAuthentication = ^(NSError *error, NSString *token) {};
+        _authenticating = NO;
     }
     return self;
 }
@@ -74,15 +76,19 @@
 }
 
 - (void)cancelAuthentication {
-    A0GoogleAuthentication callback = self.onAuthentication;
-    self.onAuthentication = ^(NSError *error, NSString *token) {};
     dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.authenticating) {
+            return;
+        }
+        A0GoogleAuthentication callback = self.onAuthentication;
+        self.onAuthentication = ^(NSError *error, NSString *token) {};
         callback([A0Errors googleplusCancelled], nil);
     });
 }
 
 - (BOOL)handleURL:(NSURL * __nonnull)url sourceApplication:(NSString * __nonnull)sourceApplication {
-    return [self.authentication handleURL:url sourceApplication:sourceApplication annotation:nil];
+    self.authenticating = [self.authentication handleURL:url sourceApplication:sourceApplication annotation:nil];
+    return self.authenticating;
 }
 
 - (void)clearSession {
@@ -103,6 +109,7 @@
     A0GoogleAuthentication callback = self.onAuthentication;
     self.onAuthentication = ^(NSError *error, NSString *token) {};
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.authenticating = NO;
         if (error) {
             A0LogError(@"Failed Google authentication with error %@", error);
             callback(error, nil);
