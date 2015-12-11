@@ -32,6 +32,7 @@
 - (instancetype)initWithAuthentication:(GIDSignIn *)authentication clientId:(NSString *)clientId scopes:(NSArray *)scopes;
 - (instancetype)initWithAuthentication:(GIDSignIn *)authentication scopes:(NSArray *)scopes;
 @property (copy, nonatomic) A0GoogleAuthentication onAuthentication;
+@property (assign, nonatomic) BOOL authenticating;
 @end
 
 #define kClientId @"RANDOMUUID.apps.googleusercontent.com"
@@ -163,6 +164,25 @@ describe(@"authenticate", ^{
                 [google cancelAuthentication];
             });
         });
+
+        it(@"should do nothing if authentication is in place", ^{
+            GIDGoogleUser *user = MKTMock(GIDGoogleUser.class);
+            GIDAuthentication *auth = MKTMock(GIDAuthentication.class);
+            [MKTGiven([user authentication]) willReturn:auth];
+            [MKTGiven(auth.accessToken) willReturn:@"TOKEN"];
+            [MKTGiven(auth.idToken) willReturn:@"JWT"];
+            google.authenticating = YES;
+            waitUntil(^(DoneCallback done) {
+                [google authenticateWithScopes:nil callback:^(NSError *error, NSString *token) {
+                    expect(token).toNot.beNil();
+                    expect(error).to.beNil();
+                    done();
+                }];
+                [google cancelAuthentication];
+                [google signIn:authentication didSignInForUser:user withError:nil];
+            });
+        });
+
     });
 
     context(@"when signIn:didSigninForUser:withError called", ^{
