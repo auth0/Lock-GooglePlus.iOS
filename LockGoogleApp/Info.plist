@@ -31,7 +31,7 @@
 			<string>google</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.856630117504-qmpg3s5fto99l8splr3u1npcb1rd2bnk</string>
+				<string>com.googleusercontent.apps.691382151861-53db636ssoktkj9cg91c53s5eer0gbke</string>
 			</array>
 		</dict>
 		<dict>
@@ -63,5 +63,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<false/>
 </dict>
 </plist>
