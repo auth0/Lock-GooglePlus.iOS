@@ -3,7 +3,7 @@ use_frameworks!
 def core_pods
   pod 'GoogleSignIn', '~> 4.0'
   pod 'Google/SignIn'
-  pod 'Lock/Core', '~> 1.28', :inhibit_warnings => true
+  pod 'Lock/Core', '~> 1.27', :inhibit_warnings => true
   pod 'ISO8601DateFormatter', :inhibit_warnings => true
   pod 'CocoaLumberjack', :inhibit_warnings => true
 end

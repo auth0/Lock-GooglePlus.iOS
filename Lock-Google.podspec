@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
   s.source_files = 'LockGoogle/*.{h,m}'
 
   s.dependency 'Google/SignIn', '~> 3.0.0'
-  s.dependency 'Lock/Core', '~> 1.26'
+  s.dependency 'Lock/Core', '~> 1.27'
 end
