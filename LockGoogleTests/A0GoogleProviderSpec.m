@@ -68,10 +68,6 @@ describe(@"initialize", ^{
             [MKTVerify(authentication) setScopes:@[kScope]];
         });
 
-        it(@"should allow webview", ^{
-            [MKTVerify(authentication) setAllowsSignInWithWebView:YES];
-        });
-
         it(@"should set delegates", ^{
             [MKTVerify(authentication) setDelegate:google];
             [MKTVerify(authentication) setUiDelegate:google];
@@ -91,10 +87,6 @@ describe(@"initialize", ^{
 
         it(@"should set scopes", ^{
             [MKTVerify(authentication) setScopes:@[kScope]];
-        });
-
-        it(@"should allow webview", ^{
-            [MKTVerify(authentication) setAllowsSignInWithWebView:YES];
         });
 
         it(@"should set delegates", ^{
