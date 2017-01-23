@@ -20,7 +20,7 @@ The Lock-Google is available through [CocoaPods](http://cocoapods.org). To insta
 ### CocoaPods
 
 ```ruby
-pod "Lock-Google", "~> 2.0"
+pod "Lock-Google", "~> 3.0"
 ```
 
 #### Swift & Frameworks
@@ -35,7 +35,7 @@ If you are using CocoaPods with the `uses_frameworks!` flag in your `Podfile`, a
 And [Google SignIn](https://developers.google.com/identity/sign-in/ios/sdk/?hl=en) library to your project or to your `Podfile` like this:
 
 ```ruby
-pod 'Google/SignIn', '~> 1.0'
+pod 'Google/SignIn', '~> 3.0'
 ```
 
 ## Before you start using Lock-Google
