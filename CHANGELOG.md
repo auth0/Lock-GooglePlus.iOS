@@ -1,5 +1,11 @@
 # Change Log
 
+## [3.0.0](https://github.com/auth0/Lock-Google.iOS/tree/3.0.0) (2017-01-23)
+[Full Changelog](https://github.com/auth0/Lock-Google.iOS/compare/2.1.2...3.0.0)
+
+**Breaking changes**
+- Update Google Signin library to v4 [\#15](https://github.com/auth0/Lock-Google.iOS/pull/15) ([cocojoe](https://github.com/cocojoe))
+
 ## [2.1.2](https://github.com/auth0/Lock-Google.iOS/tree/2.1.2) (2015-12-11)
 [Full Changelog](https://github.com/auth0/Lock-Google.iOS/compare/2.1.1...2.1.2)
 
