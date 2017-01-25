@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>691382151861-53db636ssoktkj9cg91c53s5eer0gbke.apps.googleusercontent.com</string>
+	<string>220613544498-ht0o1oon3259e86jtfmn3td36c497i76.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.691382151861-53db636ssoktkj9cg91c53s5eer0gbke</string>
+	<string>com.googleusercontent.apps.220613544498-ht0o1oon3259e86jtfmn3td36c497i76</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.auth0.LockGoogleApp</string>
 	<key>PROJECT_ID</key>
-	<string>default-demo-app-a7d7c</string>
+	<string>auth-native</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -23,6 +23,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:691382151861:ios:e5a7431626f546a8</string>
+	<string>1:220613544498:ios:e5a7431626f546a8</string>
 </dict>
 </plist>
