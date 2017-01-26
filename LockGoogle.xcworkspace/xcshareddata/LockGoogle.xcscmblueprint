@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "888BCD885A4838E724160A7DBD6B596F63677B5C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "741F96F995134AEFCCCD705572842EB8F24EE548" : 9223372036854775807,
+    "888BCD885A4838E724160A7DBD6B596F63677B5C" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DB698F69-A0DC-499F-97E4-D2E71A8732C2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "741F96F995134AEFCCCD705572842EB8F24EE548" : "..\/cocojoe\/LockNative",
+    "888BCD885A4838E724160A7DBD6B596F63677B5C" : "Lock-Google.iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LockGoogle",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LockGoogle.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cocojoe\/Lock-Native.iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "741F96F995134AEFCCCD705572842EB8F24EE548"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/auth0\/Lock-Google.iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "888BCD885A4838E724160A7DBD6B596F63677B5C"
+    }
+  ]
+}

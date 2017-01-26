@@ -1,24 +1,27 @@
-use_frameworks!
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
 
-def core_pods
-  pod 'GoogleSignIn', '~> 4.0'
-  pod 'Google/SignIn'
-  pod 'Lock/Core', '~> 1.27', :inhibit_warnings => true
-  pod 'ISO8601DateFormatter', :inhibit_warnings => true
-  pod 'CocoaLumberjack', :inhibit_warnings => true
+target 'LockGoogle' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for LockGoogle
+  pod 'Auth0', '~> 1.1.1'
+  pod 'Google/SignIn', '~> 3.0.0'
+  pod 'Lock-Native', :git => 'https://github.com/cocojoe/Lock-Native.iOS.git'
+
+  target 'LockGoogleTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
 end
 
 target 'LockGoogleApp' do
-  core_pods
-end
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
 
-target 'LockGoogle' do
-  core_pods
-end
-
-target 'LockGoogleTests' do
-  pod 'Specta', :inhibit_warnings => true
-  pod 'Expecta', :inhibit_warnings => true
-  pod 'OCMockito', '~> 2.0', :inhibit_warnings => true
-  pod 'OCHamcrest', :inhibit_warnings => true
+    # Pods for LockGoogleApp
+    pod 'Auth0', '~> 1.1.1'
+    pod 'Google/SignIn', '~> 3.0.0'
 end
