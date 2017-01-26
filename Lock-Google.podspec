@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.module_name = 'LockGoogle'
 
-  s.source_files = 'LockGoogle/**/*.{swift}"
+  s.source_files = "LockGoogle/**/*.{swift}"
 
-  s.dependency 'Google/SignIn', '~> 3.0.0'
-  s.dependency 'Lock-Native', '~> 0.22'
+  s.dependency "Google/SignIn", "~> 3.0.0"
+  s.dependency "Lock-Native", "~> 0.23"
 end
