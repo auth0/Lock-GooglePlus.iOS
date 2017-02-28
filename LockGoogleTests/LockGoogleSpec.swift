@@ -39,7 +39,7 @@ class LockGoogleSpec: QuickSpec {
             }
 
             it("should init with authentication") {
-                lockGoogle = LockGoogle(client: "220613544498-ht0o1oon3259e86jtfmn3td36c497i76.apps.googleusercontent.com", authentication: authentication)
+                lockGoogle = LockGoogle(client: "220613544498-ht0o1oon3259e86jtfmn3td36c497i76.apps.googleusercontent.com")
                 expect(lockGoogle).toNot(beNil())
             }
         }
@@ -58,24 +58,24 @@ class LockGoogleSpec: QuickSpec {
                 expect(transaction).toNot(beNil())
             }
 
-            it("should return a transaction with connection facebook") {
-                transaction = lockGoogle.login(withConnection: "twitter", scope: "", parameters: [:])
-                expect(transaction!.connection) == "twitter"
+            it("should return a transaction with connection name") {
+                transaction = lockGoogle.login(withConnection: "google-oauth2", scope: "", parameters: [:])
+                expect(transaction!.connection) == "google-oauth2"
             }
 
             it("should return a transaction with scope openid profile") {
-                transaction = lockGoogle.login(withConnection: "twitter", scope: "openid profile", parameters: [:])
+                transaction = lockGoogle.login(withConnection: "google-oauth2", scope: "openid profile", parameters: [:])
                 expect(transaction!.scope) == "openid profile"
             }
 
             it("should return a transaction with custom parameters") {
-                transaction = lockGoogle.login(withConnection: "twitter", scope: "openid profile", parameters: ["param1": "value1"])
+                transaction = lockGoogle.login(withConnection: "google-oauth2", scope: "openid profile", parameters: ["param1": "value1"])
                 let value = transaction!.parameters["param1"] as! String
                 expect(value) == "value1"
             }
 
             it("should use specified authentication object") {
-                transaction = lockGoogle.login(withConnection: "twitter", scope: "openid profile", parameters: ["param1": "value1"])
+                transaction = lockGoogle.login(withConnection: "google-oauth2", scope: "openid profile", parameters: ["param1": "value1"])
                 expect(transaction!.authentication.clientId) == authentication.clientId
             }
         }
