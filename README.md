@@ -7,46 +7,52 @@
 
 [Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
-Lock-Google helps you integrate native login with [Google iOS SDK](https://developers.google.com/identity/sign-in/ios/) and [Lock](https://auth0.com/lock)
+Lock-Google helps you integrate native login with [Google Sign-In SDK for iOS](https://developers.google.com/identity/sign-in/ios/) and [Lock](https://auth0.com/lock)
 
-## Requierements
+## Usage
 
-iOS 7+
+## Requirements
+
+- iOS 9 or later
+- Xcode 8
+- Swift 3.0
 
 ## Install
 
-The Lock-Google is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+Unfortunately as Google Sign-In SDK for iOS is a static framework as of version 4.0+.  It is no longer possible for us to bundle it into a Pod for you to integrate and is fundamentally incompatible with Carthage.
 
 ### CocoaPods
 
-```ruby
-pod "Lock-Google", "~> 3.0"
-```
-
-#### Swift & Frameworks
-
-If you are using CocoaPods with the `uses_frameworks!` flag in your `Podfile`, adding **Lock-Google** might make CocoaPods fail because Google SignIn library is distributed as a static lib. A workaround for this case is to add the following files to your project:
-
-* [A0GoogleAuthenticator.h](https://github.com/auth0/Lock-Google.iOS/blob/master/LockGoogle/A0GoogleAuthenticator.h)
-* [A0GoogleAuthenticator.m](https://github.com/auth0/Lock-Google.iOS/blob/master/LockGoogle/A0GoogleAuthenticator.m)
-* [A0GoogleProvider.h](https://github.com/auth0/Lock-Google.iOS/blob/master/LockGoogle/A0GoogleProvider.h)
-* [A0GoogleProvider.m](https://github.com/auth0/Lock-Google.iOS/blob/master/LockGoogle/A0GoogleProvider.m)
- 
-And [Google SignIn](https://developers.google.com/identity/sign-in/ios/sdk/?hl=en) library to your project or to your `Podfile` like this:
+If you are using CocoaPods you can add the dependencies directly to your project.
+Add the [Google Sign-In](https://developers.google.com/identity/sign-in/ios/start-integrating) and [Auth0](https://github.com/auth0/Auth0.swift) library to your project. Add the following to your `Podfile`:
 
 ```ruby
-pod 'Google/SignIn', '~> 3.0'
+pod 'Auth0', '~> 1.2'
+pod 'GoogleSignIn', '~> 4.0'
 ```
+
+### Carthage
+
+If you are using carthage you can install the Auth0 dependency.
+
+```ruby
+github "auth0/Auth0.swift" ~> 1.2
+```
+
+However you will need to follow the [manual install guide](https://developers.google.com/identity/sign-in/ios/sdk/) for Google Sign-In.
+
+### Source Code
+
+You will need to download and add the following files to your project:
+
+* [GoogleNativeTransaction.swift](https://raw.githubusercontent.com/auth0/Lock-Google.iOS/new_native_demo/LockGoogle/GoogleNativeTransaction.swift)
+* [LockGoogle.swift](https://raw.githubusercontent.com/auth0/Lock-Google.iOS/new_native_demo/LockGoogle/LockGoogle.swift)
 
 ## Before you start using Lock-Google
 
 In order to use Google APIs you'll need to register your iOS application in [Google Developer Console](https://console.developers.google.com/project) and get your clientId.
-We recommend follwing [this wizard](https://developers.google.com/mobile/add?platform=ios) instead and download the file `GoogleServices-Info.plist` that is generated at the end.
+We recommend following [this wizard](https://developers.google.com/mobile/add?platform=ios) instead and download the file `GoogleServices-Info.plist` that is generated at the end.
 
-Add that file to your application's target and the last step is to register two custom URL for your application.
-
-The first URL should have a scheme equal to your application Bundle Identifier, the other one should be your Google clientId reversed, so if your clientID is `CLIENTID.apps.googleusercontent.com` the scheme will be `com.googleusercontent.apps.CLIENTID`
-> This last value can be found in `GoogleServices-Info.plist` under the key `REVERSED_CLIENT_ID`
 > For more information please check Google's [documentation](https://developers.google.com/identity/sign-in/ios/)
 
 ### Auth0 Connection with multiple Google clientIDs (Web & Mobile)
@@ -55,51 +61,17 @@ If you also have a Web Application, and a Google clientID & secret for it config
 
 ## Usage
 
-Just create a new instance of `A0GoogleAuthenticator`
-
-```objc
-A0GoogleAuthenticator *google = [A0GoogleAuthenticator newAuthenticator];
-```
+Just create a new instance of `LockGoogle` with your Google App *CLIENT ID*, you can find this in the `GoogleServices-Info.plist` you added to the project.
 
 ```swift
-let google = A0GoogleAuthenticator.newAuthenticator()
+let lockGoogle = LockGoogle(client: "<YOUR CLIENT ID>")
 ```
 
-and register it with your instance of `A0Lock`
-
-```objc
-A0Lock *lock = //Get your A0Lock instance
-[lock registerAuthenticators:@[google]];
-```
+You can register this handler to a connection name when setting up Lock.
 
 ```swift
-let lock:A0Lock = //Get your A0Lock instance
-lock.registerAuthenticators([google])
+.handlerAuthentication(forConnectionName: "google-oauth2", handler: lockGoogle)
 ```
-
-> A good place to create and register `A0GoogleAuthenticator` is the `AppDelegate`.
-
-###Specify scopes
-
-```objc
-A0GoogleAuthenticator *google = [A0GoogleAuthenticator newAuthenticatorWithScopes:@[@"scope1", @"scope2"]];
-```
-
-```swift
-let google = A0GoogleAuthenticator.newAuthenticatorWithScopes(["scope1", "scope2"])
-```
-
-###Custom Google connection
-
-```objc
-A0GoogleAuthenticator *google = [A0GoogleAuthenticator newAuthenticatorForConnectionName:@"my-google-connection"];
-```
-
-```swift
-let google = A0GoogleAuthenticator.newAuthenticatorForConnectionName("my-google-connection")
-```
-
-> Please check CocoaDocs for more information about [LockGoogle API](http://cocoadocs.org/docsets/Lock-Google).
 
 ## Issue Reporting
 
