@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "97D0A378E237B4CB3FD3E8D03FE139518FB58895",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "97D0A378E237B4CB3FD3E8D03FE139518FB58895" : 9223372036854775807,
+    "48CE723FAF7B9F512D39C3C9102B6106196DB78E" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "11BA051B-D62F-480E-9B7C-5BB93265C006",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "97D0A378E237B4CB3FD3E8D03FE139518FB58895" : "Lock-Google.iOS\/",
+    "48CE723FAF7B9F512D39C3C9102B6106196DB78E" : "GoogleSignInWrapper\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LockGoogle",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LockGoogle.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cocojoe\/GoogleSignInWrapper.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "48CE723FAF7B9F512D39C3C9102B6106196DB78E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/auth0\/Lock-Google.iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "97D0A378E237B4CB3FD3E8D03FE139518FB58895"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+PODS:
+  - Auth0 (1.2.0)
+  - GoogleSignIn (4.0.2):
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GTMOAuth2 (1.1.4):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.8):
+    - GTMSessionFetcher/Full (= 1.1.8)
+  - GTMSessionFetcher/Core (1.1.8)
+  - GTMSessionFetcher/Full (1.1.8):
+    - GTMSessionFetcher/Core (= 1.1.8)
+
+DEPENDENCIES:
+  - Auth0 (~> 1.2)
+  - GoogleSignIn (~> 4.0)
+
+SPEC CHECKSUMS:
+  Auth0: c5719a587c4f5fd78d8c16a26a6f0976f1718add
+  GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
+  GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+
+PODFILE CHECKSUM: e17a2c40f16c4e930234fe192467b3344354cb3d
+
+COCOAPODS: 1.2.0
