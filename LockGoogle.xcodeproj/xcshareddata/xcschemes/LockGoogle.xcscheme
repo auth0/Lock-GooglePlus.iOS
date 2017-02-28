@@ -20,6 +20,20 @@
                ReferencedContainer = "container:LockGoogle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5B398A9E1E393C4500A1DDC5"
+               BuildableName = "LockGoogleApp.app"
+               BlueprintName = "LockGoogleApp"
+               ReferencedContainer = "container:LockGoogle.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -34,7 +48,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B3EB0DA1E393568002CB88C"
                BuildableName = "LockGoogleTests.xctest"
-               BlueprintName = "LockGoogleTests"
+               BlueprintName = "LockGoogleTests.iOS"
                ReferencedContainer = "container:LockGoogle.xcodeproj">
             </BuildableReference>
          </TestableReference>
