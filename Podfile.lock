@@ -20,10 +20,14 @@ PODS:
   - GTMSessionFetcher/Core (1.1.8)
   - GTMSessionFetcher/Full (1.1.8):
     - GTMSessionFetcher/Core (= 1.1.8)
+  - Nimble (6.0.1)
+  - Quick (1.1.0)
 
 DEPENDENCIES:
   - Auth0 (~> 1.2)
   - GoogleSignIn (~> 4.0)
+  - Nimble
+  - Quick
 
 SPEC CHECKSUMS:
   Auth0: c5719a587c4f5fd78d8c16a26a6f0976f1718add
@@ -31,7 +35,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
 
-PODFILE CHECKSUM: e17a2c40f16c4e930234fe192467b3344354cb3d
+PODFILE CHECKSUM: 8dd78046220e73ab86881e83f13ea4585c7297c8
 
 COCOAPODS: 1.2.0

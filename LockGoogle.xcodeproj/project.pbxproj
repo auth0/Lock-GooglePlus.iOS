@@ -16,11 +16,12 @@
 		5B398AA91E393C4500A1DDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B398AA81E393C4500A1DDC5 /* Assets.xcassets */; };
 		5B398AAC1E393C4500A1DDC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B398AAA1E393C4500A1DDC5 /* LaunchScreen.storyboard */; };
 		5B3EB0DC1E393568002CB88C /* LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3EB0D21E393568002CB88C /* LockGoogle.framework */; };
-		5B3EB0E11E393568002CB88C /* LockGoogleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3EB0E01E393568002CB88C /* LockGoogleTests.swift */; };
+		5B3EB0E11E393568002CB88C /* LockGoogleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3EB0E01E393568002CB88C /* LockGoogleSpec.swift */; };
 		5B3EB0E31E393568002CB88C /* LockGoogle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3EB0D51E393568002CB88C /* LockGoogle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B9D86A11E393F87009D7DB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9D86A01E393F87009D7DB5 /* GoogleService-Info.plist */; };
 		5BC436071E5C42EC0019DC66 /* LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3EB0D21E393568002CB88C /* LockGoogle.framework */; };
 		5BC436081E5C42EC0019DC66 /* LockGoogle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3EB0D21E393568002CB88C /* LockGoogle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B7B62A91D17358D5873E3B3 /* Pods_LockGoogleTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BA32EAB96B8D024EFC2706 /* Pods_LockGoogleTests_iOS.framework */; };
 		93A2FB8A6B224AB379BB98CC /* Pods_LockGoogleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BD1341AB30F1049231D8FB /* Pods_LockGoogleApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +64,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15BA32EAB96B8D024EFC2706 /* Pods_LockGoogleTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockGoogleTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E78D313166B95F70ADA67B /* Pods-LockGoogleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogleApp/Pods-LockGoogleApp.release.xcconfig"; sourceTree = "<group>"; };
+		5914B8AEF8C5BBE579A94D76 /* Pods-LockGoogleTests.iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogleTests.iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogleTests.iOS/Pods-LockGoogleTests.iOS.release.xcconfig"; sourceTree = "<group>"; };
 		5B25A5301E3F661B00563AE5 /* GoogleNativeTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleNativeTransaction.swift; sourceTree = "<group>"; };
 		5B398A991E39394300A1DDC5 /* LockGoogle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockGoogle.swift; sourceTree = "<group>"; };
 		5B398A9F1E393C4500A1DDC5 /* LockGoogleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockGoogleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +80,7 @@
 		5B3EB0D51E393568002CB88C /* LockGoogle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockGoogle.h; sourceTree = "<group>"; };
 		5B3EB0D61E393568002CB88C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B3EB0DB1E393568002CB88C /* LockGoogleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockGoogleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B3EB0E01E393568002CB88C /* LockGoogleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockGoogleTests.swift; sourceTree = "<group>"; };
+		5B3EB0E01E393568002CB88C /* LockGoogleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockGoogleSpec.swift; sourceTree = "<group>"; };
 		5B3EB0E21E393568002CB88C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B9D86A01E393F87009D7DB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5BE434581E65836F00950FA1 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = SOURCE_ROOT; };
@@ -91,6 +94,7 @@
 		5BEBB2201E5B29FC005A8089 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		7107A814BD70BB880780D5D3 /* Pods-LockGoogleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogleApp/Pods-LockGoogleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		79116ABF2C1DBA78E491A8A4 /* Pods-LockGoogle.iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogle.iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogle.iOS/Pods-LockGoogle.iOS.release.xcconfig"; sourceTree = "<group>"; };
+		7C70DF211EBC4468E3738216 /* Pods-LockGoogleTests.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogleTests.iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogleTests.iOS/Pods-LockGoogleTests.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B89C7BF2E9861782B576BAED /* Pods-LockGoogle.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockGoogle.iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockGoogle.iOS/Pods-LockGoogle.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BD1341AB30F1049231D8FB /* Pods_LockGoogleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockGoogleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D2F8C6E0016F0F1BBFC9DB /* Pods_LockGoogle_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockGoogle_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B3EB0DC1E393568002CB88C /* LockGoogle.framework in Frameworks */,
+				6B7B62A91D17358D5873E3B3 /* Pods_LockGoogleTests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +181,7 @@
 		5B3EB0DF1E393568002CB88C /* LockGoogleTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B3EB0E01E393568002CB88C /* LockGoogleTests.swift */,
+				5B3EB0E01E393568002CB88C /* LockGoogleSpec.swift */,
 				5B3EB0E21E393568002CB88C /* Info.plist */,
 			);
 			path = LockGoogleTests;
@@ -189,6 +194,8 @@
 				79116ABF2C1DBA78E491A8A4 /* Pods-LockGoogle.iOS.release.xcconfig */,
 				7107A814BD70BB880780D5D3 /* Pods-LockGoogleApp.debug.xcconfig */,
 				55E78D313166B95F70ADA67B /* Pods-LockGoogleApp.release.xcconfig */,
+				7C70DF211EBC4468E3738216 /* Pods-LockGoogleTests.iOS.debug.xcconfig */,
+				5914B8AEF8C5BBE579A94D76 /* Pods-LockGoogleTests.iOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 				5BEBB2131E5B27C4005A8089 /* SystemConfiguration.framework */,
 				E3D2F8C6E0016F0F1BBFC9DB /* Pods_LockGoogle_iOS.framework */,
 				C3BD1341AB30F1049231D8FB /* Pods_LockGoogleApp.framework */,
+				15BA32EAB96B8D024EFC2706 /* Pods_LockGoogleTests_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,9 +281,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B3EB0E91E393568002CB88C /* Build configuration list for PBXNativeTarget "LockGoogleTests.iOS" */;
 			buildPhases = (
+				12A6F046969A4BA19C746A31 /* [CP] Check Pods Manifest.lock */,
 				5B3EB0D71E393568002CB88C /* Sources */,
 				5B3EB0D81E393568002CB88C /* Frameworks */,
 				5B3EB0D91E393568002CB88C /* Resources */,
+				440B3F98C0FB2EDF3A007CD2 /* [CP] Embed Pods Frameworks */,
+				B3B23668084C4DE7ACD38B5B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,6 +376,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		12A6F046969A4BA19C746A31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		4314A7BE2672103F7FFA209F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -378,6 +404,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockGoogle.iOS/Pods-LockGoogle.iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		440B3F98C0FB2EDF3A007CD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockGoogleTests.iOS/Pods-LockGoogleTests.iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5B6269EF1E41E70500305093 /* SwiftLint */ = {
@@ -435,6 +476,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockGoogleApp/Pods-LockGoogleApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3B23668084C4DE7ACD38B5B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockGoogleTests.iOS/Pods-LockGoogleTests.iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E28351AF9C1D138C0BB44B39 /* [CP] Check Pods Manifest.lock */ = {
@@ -507,7 +563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3EB0E11E393568002CB88C /* LockGoogleTests.swift in Sources */,
+				5B3EB0E11E393568002CB88C /* LockGoogleSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +791,7 @@
 		};
 		5B3EB0EA1E393568002CB88C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C70DF211EBC4468E3738216 /* Pods-LockGoogleTests.iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -750,6 +807,7 @@
 		};
 		5B3EB0EB1E393568002CB88C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5914B8AEF8C5BBE579A94D76 /* Pods-LockGoogleTests.iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
