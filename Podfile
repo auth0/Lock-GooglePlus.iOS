@@ -6,7 +6,7 @@ target 'LockGoogle.iOS' do
   use_frameworks!
 
   # Pods for LockGoogle.iOS
-  pod 'Auth0', '~> 1.2'
+  pod 'Auth0', '~> 1.3'
   pod 'GoogleSignIn', '~> 4.0'
 end
 
@@ -15,7 +15,7 @@ target 'LockGoogleTests.iOS' do
   use_frameworks!
 
   # Pods for LockGoogleTests.iOS
-  pod 'Auth0', '~> 1.2'
+  pod 'Auth0', '~> 1.3'
   pod 'GoogleSignIn', '~> 4.0'
   pod 'Quick'
   pod 'Nimble'
@@ -26,6 +26,6 @@ target 'LockGoogleApp' do
   use_frameworks!
 
   # Pods for LockGoogleApp
-  pod 'Auth0', '~> 1.2'
+  pod 'Auth0', '~> 1.3'
 
 end
