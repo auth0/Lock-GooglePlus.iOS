@@ -39,7 +39,7 @@ class LockGoogleSpec: QuickSpec {
             }
 
             it("should init with authentication") {
-                lockGoogle = LockGoogle(client: "220613544498-ht0o1oon3259e86jtfmn3td36c497i76.apps.googleusercontent.com")
+                lockGoogle = LockGoogle(client: "220613544498-ht0o1oon3259e86jtfmn3td36c497i76.apps.googleusercontent.com", authentication: authentication)
                 expect(lockGoogle).toNot(beNil())
             }
         }
