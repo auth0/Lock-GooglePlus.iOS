@@ -21,7 +21,6 @@
 // THE SOFTWARE.
 
 import UIKit
-import Auth0
 import LockGoogle
 
 class ViewController: UIViewController {
@@ -57,6 +56,5 @@ class ViewController: UIViewController {
                     print("Login Failed, error: \(error)")
                 }
         }
-        
     }
 }

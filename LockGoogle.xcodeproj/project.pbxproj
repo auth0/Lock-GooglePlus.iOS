@@ -436,7 +436,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nfi";
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi";
 		};
 		5B6269F01E41E71E00305093 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -450,7 +450,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nfi";
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi";
 		};
 		5BE434571E6582CF00950FA1 /* Auth0 */ = {
 			isa = PBXShellScriptBuildPhase;
