@@ -464,7 +464,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "AUTH0_PLIST=\"${SRCROOT}/Auth0.plist\"\nif [ -f $AUTH0_PLIST ];\nthen\ncp \"$AUTH0_PLIST\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nfi";
+			shellScript = "AUTH0_PLIST=\"${SRCROOT}/Auth0.plist\"\nif [ -z ${TESTING} ];\nthen\nAUTH0_PLIST=\"${SRCROOT}/LockGoogleTests/Auth0Test.plist\"\nfi\nif [ -f $AUTH0_PLIST ];\nthen\ncp \"$AUTH0_PLIST\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Auth0.plist\"\nfi";
 		};
 		ADBCFA20844FFB5397F214B3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

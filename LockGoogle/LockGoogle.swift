@@ -47,6 +47,6 @@ public struct LockGoogle: AuthProvider {
     }
 
     public func logout() {
-        GIDSignIn.sharedInstance().signOut()
+        GIDSignIn.sharedInstance().disconnect()
     }
 }
