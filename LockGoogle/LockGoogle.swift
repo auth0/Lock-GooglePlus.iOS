@@ -27,17 +27,64 @@ import GoogleSignIn
 public struct LockGoogle: AuthProvider {
 
     private(set) var authentication: Authentication
+    private(set) var scopes: [String] = ["profile"]
 
-    public init(client: String, authentication: Authentication? = nil) {
+    public init(client: String, authentication: Authentication = Auth0.authentication()) {
         GIDSignIn.sharedInstance().clientID = client
-        self.authentication = authentication ?? Auth0.authentication()
+        self.authentication = authentication
     }
 
     public func login(withConnection connection: String, scope: String, parameters: [String : Any]) -> NativeAuthTransaction {
-        let transaction = GoogleNativeTransaction(connection: connection, scope: scope, parameters: parameters, authentication: self.authentication)
+        let transaction = GoogleNativeTransaction(connection: connection, scope: scope, parameters: parameters, authentication: self.authentication, scopes: self.scopes)
         GIDSignIn.sharedInstance().uiDelegate = transaction
         GIDSignIn.sharedInstance().delegate = transaction
         return transaction
     }
 
+    public mutating func scopes(_ scopes: [String]) -> LockGoogle {
+        self.scopes = scopes
+        return self
+    }
+}
+
+func logger<T>(_ object: @autoclosure () -> T, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
+    #if DEBUG
+        let value = object()
+        let fileURL = NSURL(string: file)?.lastPathComponent ?? "Unknown file"
+
+        print("\(fileURL) \(function)[\(line)]: " + String(reflecting: value))
+    #endif
+}
+
+struct ControllerModalPresenter {
+
+    var rootViewController: UIViewController? {
+        return UIApplication.shared.keyWindow?.rootViewController
+    }
+
+    func present(controller: UIViewController) {
+        topViewController?.present(controller, animated: true, completion: nil)
+    }
+
+    var topViewController: UIViewController? {
+        guard let root = self.rootViewController else { return nil }
+        return findTopViewController(from: root)
+    }
+
+    private func findTopViewController(from root: UIViewController) -> UIViewController? {
+        if let presented = root.presentedViewController { return findTopViewController(from: presented) }
+        switch root {
+        case let split as UISplitViewController:
+            guard let last = split.viewControllers.last else { return split }
+            return findTopViewController(from: last)
+        case let navigation as UINavigationController:
+            guard let top = navigation.topViewController else { return navigation }
+            return findTopViewController(from: top)
+        case let tab as UITabBarController:
+            guard let selected = tab.selectedViewController else { return tab }
+            return findTopViewController(from: selected)
+        default:
+            return root
+        }
+    }
 }

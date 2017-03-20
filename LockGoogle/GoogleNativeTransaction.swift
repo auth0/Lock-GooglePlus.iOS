@@ -30,22 +30,26 @@ class GoogleNativeTransaction: NSObject, NativeAuthTransaction {
     var scope: String
     var parameters: [String : Any]
     var authentication: Authentication
+    var scopes: [String]
 
-    public init(connection: String, scope: String, parameters: [String: Any], authentication: Authentication) {
+    public init(connection: String, scope: String, parameters: [String: Any], authentication: Authentication, scopes: [String]) {
         self.connection = connection
         self.scope = scope
         self.parameters = parameters
         self.authentication = authentication
+        self.scopes = scopes
     }
 
     var delayed: NativeAuthTransaction.Callback = { _ in }
 
     func auth(callback: @escaping NativeAuthTransaction.Callback) {
+        GIDSignIn.sharedInstance().scopes = self.scopes
         GIDSignIn.sharedInstance().signIn()
         self.delayed = callback
     }
 
     func cancel() {
+        logger("Google authentication cancelled")
         self.delayed(.failure(error: WebAuthError.userCancelled))
         self.delayed = { _ in }
     }
@@ -59,8 +63,10 @@ extension GoogleNativeTransaction: GIDSignInDelegate {
 
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else {
+            logger("Google authentication failed with error: \(error)")
             return self.cancel()
         }
+        logger("Google authenticated user: \(user.userID) with scopes: \(user.accessibleScopes)")
         self.delayed(.success(result: NativeAuthCredentials(token: user.authentication.accessToken, extras: [:])))
         self.delayed = { _ in }
     }
@@ -69,11 +75,6 @@ extension GoogleNativeTransaction: GIDSignInDelegate {
 extension GoogleNativeTransaction: GIDSignInUIDelegate {
 
     public func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-        if var topController = UIApplication.shared.keyWindow?.rootViewController {
-            while let presentedViewController = topController.presentedViewController {
-                topController = presentedViewController
-            }
-            topController.present(viewController, animated: true, completion: nil)
-        }
+        ControllerModalPresenter().present(controller: viewController)
     }
 }
