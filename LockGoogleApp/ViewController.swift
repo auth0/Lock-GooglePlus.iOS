@@ -26,8 +26,7 @@ import LockGoogle
 
 class ViewController: UIViewController {
 
-    var lockGoogle = LockGoogle(client: "220613544498-ht0o1oon3259e86jtfmn3td36c497i76.apps.googleusercontent.com",
-                                authentication: authentication())
+    var lockGoogle = LockGoogle(client: "220613544498-ht0o1oon3259e86jtfmn3td36c497i76.apps.googleusercontent.com")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +50,13 @@ class ViewController: UIViewController {
             .scopes(["profile", "email"])
             .login(withConnection: "google-oauth2", scope: "openid", parameters: [:])
             .start { result in
-            switch result {
-            case .success(let credentials):
-                print("Login Success, accessToken: \(credentials.accessToken)")
-            case .failure(let error):
-                print("Login Failed, error: \(error)")
-            }
+                switch result {
+                case .success(let credentials):
+                    print("Login Success, accessToken: \(credentials.accessToken)")
+                case .failure(let error):
+                    print("Login Failed, error: \(error)")
+                }
         }
-
+        
     }
 }

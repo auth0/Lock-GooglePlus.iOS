@@ -45,46 +45,8 @@ public struct LockGoogle: AuthProvider {
         self.scopes = scopes
         return self
     }
-}
 
-func logger<T>(_ object: @autoclosure () -> T, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
-    #if DEBUG
-        let value = object()
-        let fileURL = NSURL(string: file)?.lastPathComponent ?? "Unknown file"
-
-        print("\(fileURL) \(function)[\(line)]: " + String(reflecting: value))
-    #endif
-}
-
-struct ControllerModalPresenter {
-
-    var rootViewController: UIViewController? {
-        return UIApplication.shared.keyWindow?.rootViewController
-    }
-
-    func present(controller: UIViewController) {
-        topViewController?.present(controller, animated: true, completion: nil)
-    }
-
-    var topViewController: UIViewController? {
-        guard let root = self.rootViewController else { return nil }
-        return findTopViewController(from: root)
-    }
-
-    private func findTopViewController(from root: UIViewController) -> UIViewController? {
-        if let presented = root.presentedViewController { return findTopViewController(from: presented) }
-        switch root {
-        case let split as UISplitViewController:
-            guard let last = split.viewControllers.last else { return split }
-            return findTopViewController(from: last)
-        case let navigation as UINavigationController:
-            guard let top = navigation.topViewController else { return navigation }
-            return findTopViewController(from: top)
-        case let tab as UITabBarController:
-            guard let selected = tab.selectedViewController else { return tab }
-            return findTopViewController(from: selected)
-        default:
-            return root
-        }
+    public func logout() {
+        GIDSignIn.sharedInstance().signOut()
     }
 }

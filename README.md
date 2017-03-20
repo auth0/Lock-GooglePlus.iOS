@@ -27,7 +27,7 @@ If you are using CocoaPods you can add the dependencies directly to your project
 Add the [Google Sign-In](https://developers.google.com/identity/sign-in/ios/start-integrating) and [Auth0](https://github.com/auth0/Auth0.swift) library to your project. Add the following to your `Podfile`:
 
 ```ruby
-pod 'Auth0', '~> 1.2'
+pod 'Auth0', '~> 1.3'
 pod 'GoogleSignIn', '~> 4.0'
 ```
 
@@ -36,7 +36,7 @@ pod 'GoogleSignIn', '~> 4.0'
 If you are using carthage you can install the Auth0 dependency.
 
 ```ruby
-github "auth0/Auth0.swift" ~> 1.2
+github "auth0/Auth0.swift" ~> 1.3
 ```
 
 However you will need to follow the [manual install guide](https://developers.google.com/identity/sign-in/ios/sdk/) for Google Sign-In.
@@ -66,6 +66,16 @@ Just create a new instance of `LockGoogle` with your Google App *CLIENT ID*, you
 ```swift
 let lockGoogle = LockGoogle(client: "<YOUR CLIENT ID>")
 ```
+
+### Connection Scopes
+
+You can register additional permissions when setting up `lockGoogle`:
+
+```swift
+.scopes(["profile", "email"])
+```
+
+### Lock
 
 You can register this handler to a connection name when setting up Lock.
 

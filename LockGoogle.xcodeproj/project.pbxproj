@@ -18,6 +18,7 @@
 		5B3EB0DC1E393568002CB88C /* LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3EB0D21E393568002CB88C /* LockGoogle.framework */; };
 		5B3EB0E11E393568002CB88C /* LockGoogleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3EB0E01E393568002CB88C /* LockGoogleSpec.swift */; };
 		5B3EB0E31E393568002CB88C /* LockGoogle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B3EB0D51E393568002CB88C /* LockGoogle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B4BA3EE1E8024B60067FC3F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4BA3ED1E8024B60067FC3F /* Utils.swift */; };
 		5B9D86A11E393F87009D7DB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9D86A01E393F87009D7DB5 /* GoogleService-Info.plist */; };
 		5BC436071E5C42EC0019DC66 /* LockGoogle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3EB0D21E393568002CB88C /* LockGoogle.framework */; };
 		5BC436081E5C42EC0019DC66 /* LockGoogle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3EB0D21E393568002CB88C /* LockGoogle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -82,6 +83,7 @@
 		5B3EB0DB1E393568002CB88C /* LockGoogleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockGoogleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3EB0E01E393568002CB88C /* LockGoogleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockGoogleSpec.swift; sourceTree = "<group>"; };
 		5B3EB0E21E393568002CB88C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B4BA3ED1E8024B60067FC3F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5B9D86A01E393F87009D7DB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5BE434581E65836F00950FA1 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = SOURCE_ROOT; };
 		5BEBB2121E5B27C4005A8089 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -172,6 +174,7 @@
 			children = (
 				5B25A5301E3F661B00563AE5 /* GoogleNativeTransaction.swift */,
 				5B398A991E39394300A1DDC5 /* LockGoogle.swift */,
+				5B4BA3ED1E8024B60067FC3F /* Utils.swift */,
 				5B3EB0D51E393568002CB88C /* LockGoogle.h */,
 				5B3EB0D61E393568002CB88C /* Info.plist */,
 			);
@@ -556,6 +559,7 @@
 			files = (
 				5B25A5311E3F661B00563AE5 /* GoogleNativeTransaction.swift in Sources */,
 				5B398A9A1E39394300A1DDC5 /* LockGoogle.swift in Sources */,
+				5B4BA3EE1E8024B60067FC3F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
