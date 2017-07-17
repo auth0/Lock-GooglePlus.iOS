@@ -29,6 +29,10 @@ public struct LockGoogle: AuthProvider {
     private(set) var authentication: Authentication
     private(set) var scopes: [String] = ["profile"]
 
+    public static func isAvailable() -> Bool {
+        return true
+    }
+
     public init(client: String, authentication: Authentication = Auth0.authentication()) {
         GIDSignIn.sharedInstance().clientID = client
         self.authentication = authentication

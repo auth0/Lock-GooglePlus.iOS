@@ -51,10 +51,17 @@ class ViewController: UIViewController {
             .start { result in
                 switch result {
                 case .success(let credentials):
-                    print("Login Success, accessToken: \(credentials.accessToken)")
+                    print("Login Success, accessToken: \(String(describing: credentials.accessToken))")
+                    self.showSuccessAlert(credentials.accessToken)
                 case .failure(let error):
                     print("Login Failed, error: \(error)")
                 }
         }
+    }
+
+    func showSuccessAlert(_ accessToken: String?) {
+        let alert = UIAlertController(title: "Success", message: "accessToken: \(accessToken ?? "<no token>")", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
